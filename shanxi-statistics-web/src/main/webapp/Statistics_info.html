@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>统计</title>
+    <link rel="stylesheet" href="plugins/adminLTE/css/AdminLTE.css">
+    <link rel="stylesheet" href="plugins/adminLTE/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+
+
+    <!--  导入angularjs  -->
+    <script type="text/javascript" src="plugins/angularjs/angular.min.js"></script>
+    <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="plugins/jQueryUI/jquery-ui.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="plugins/echarts-4.5.0/dist/echarts.js"></script>
+
+    <script type="text/javascript" src="js/base.js"></script>
+    <script type="text/javascript" src="js/service/statisticsService.js"></script>
+    <script type="text/javascript" src="js/controller/statisticsController.js"></script>
+    <script type="text/javascript" src="js/controller/pie.js"></script>
+    <!--<script type="text/javascript" src="plugins/adminLTE/js/app.js"></script>-->
+
+</head>
+<body class="hold-transition skin-purple sidebar-mini" style="width: 100%;height: 100%;" ng-app="shanxi-tongji" ng-controller="statisticsController" ng-init="getPieChart()" >
+<div class="wrapper">
+    <!--   正文  -->
+    <div class="content-wrapper" style="margin-left: 0px;height: 100%">
+        <section class="content" style="height: 98%">
+            <div class="box-body" style="height: 100%;padding: 5px;">
+                <!--  table 页面 -->
+                <div class="nav-tabs-custom" style="height: 100%;margin-bottom:10px;">
+                    <!--tab头-->
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#tab-allState" data-toggle="tab">陕西省地理标志整体情况</a>
+                        </li>
+                        <li>
+                            <a href="#tab-product" data-toggle="tab">地标产品统计</a>
+                        </li>
+                        <li>
+                            <a href="#tab-enterprise" data-toggle="tab">用标企业统计</a>
+                        </li>
+                    </ul>
+                    <!-- tab 头end -->
+                    <!--tab内容 start-->
+                    <div class="tab-content" style="height: 95%;min-height: 710px;">
+                        <!--label显示的内容-->
+                        <div class="tab-pane active " style="height: 100%;width: 100%" id="tab-allState">
+                            <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+                            <!--<div id="main" style="width: 600px;height:400px;"></div>-->
+
+                            <div style="width: 100%;height: 100%">
+                                <div style="width: 50%; height: 48%; float: left; min-height: 300px;">
+                                    陕西省地理标志整体概况（一段文字）
+                                </div>
+                                <div id="pieChart"  style="width: 50%; height: 48%; float: right;min-height: 300px; "></div>
+                                <!--<div id="lineChartByYear" style="width: 50%; height: 50%; float: left; "> </div>-->
+                                <div id="fangkuai" style="width: 100%; height: 50%; float: right; "></div>
+                            </div>
+                        </div>
+                        <div class="tab-pane  "  style="height: 100%;width: 100%;min-height: 710px; " id="tab-product">
+                            <div style="width: 100%;height: 100%">
+                                <div id="Histogram" style="width: 50%; height: 50%; float: left; "></div>
+                                <div id="pieArea"  style="width: 50%; height: 50%; float: right;  "></div>
+                                <!--<div id="lineChartByYear" style="width: 50%; height: 50%; float: left; "> </div>-->
+                                <div id="lineChartByYear" style="width: 100%; height: 50%; float: right;  "></div>
+                            </div>
+                        </div>
+                        <div class="tab-pane " id="tab-enterprise">
+                           333333333
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+</body>
+<!--  饼状图 -->
+<script type="text/javascript">
+
+</script>
+<!--  折线图 -->
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChartLineChartByYear = echarts.init(document.getElementById('lineChartByYear'));
+    option = {
+        xAxis: {
+            type: 'category',
+            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [{
+            data: [120, 200, 150, 80, 70, 110, 130],
+            type: 'line',
+            symbol: 'triangle',
+            symbolSize: 20,
+            lineStyle: {
+                normal: {
+                    color: 'green',
+                    width: 4,
+                    type: 'dashed'
+                }
+            },
+            itemStyle: {
+                normal: {
+                    borderWidth: 3,
+                    borderColor: 'yellow',
+                    color: 'blue'
+                }
+            }
+        }]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChartLineChartByYear.setOption(option);
+</script>
+<!--方块图-->
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('fangkuai'));
+
+    //myChart.showLoading();
+
+    var rawData={
+        "xAxis": {
+            "axisLabel": {
+                "$count": 2534,
+                "show": {
+                    "$count": 444
+                },
+                "interval": {
+                    "$count": 950
+                },
+                "rotate": {
+                    "$count": 584
+                },
+                "inside": {
+                    "$count": 416
+                },
+                "formatter": {
+                    "$count": 886
+                },
+                "textStyle": {
+                    "$count": 490,
+                    "color": {
+                        "$count": 142
+                    },
+                    "fontStyle": {
+                        "$count": 107
+                    },
+                    "fontWeight": {
+                        "$count": 73
+                    },
+                    "fontFamily": {
+                        "$count": 68
+                    },
+                    "fontSize": {
+                        "$count": 128
+                    }
+                },
+                "margin": {
+                    "$count": 456
+                }
+            },
+            "axisLine": {
+                "$count": 2303,
+                "lineStyle": {
+                    "width": {
+                        "$count": 158
+                    },
+                    "$count": 616,
+                    "shadowBlur": {
+                        "$count": 126
+                    },
+                    "color": {
+                        "$count": 244
+                    },
+                    "type": {
+                        "$count": 185
+                    },
+                    "shadowColor": {
+                        "$count": 103
+                    },
+                    "opacity": {
+                        "$count": 125
+                    },
+                    "shadowOffsetX": {
+                        "$count": 72
+                    },
+                    "shadowOffsetY": {
+                        "$count": 57
+                    }
+                },
+                "show": {
+                    "$count": 494
+                },
+                "onZero": {
+                    "$count": 465
+                }
+            },
+            "$count": 11102,
+            "boundaryGap": {
+                "$count": 2319
+            },
+            "interval": {
+                "$count": 1738
+            },
+            "type": {
+                "$count": 3544
+            },
+            "position": {
+                "$count": 2285
+            },
+            "splitNumber": {
+                "$count": 1817
+            },
+            "splitLine": {
+                "$count": 1565,
+                "interval": {
+                    "$count": 273
+                },
+                "lineStyle": {
+                    "$count": 250,
+                    "color": {
+                        "$count": 131
+                    },
+                    "shadowBlur": {
+                        "$count": 42
+                    },
+                    "shadowColor": {
+                        "$count": 31
+                    },
+                    "type": {
+                        "$count": 97
+                    },
+                    "opacity": {
+                        "$count": 58
+                    },
+                    "shadowOffsetX": {
+                        "$count": 23
+                    },
+                    "width": {
+                        "$count": 67
+                    },
+                    "shadowOffsetY": {
+                        "$count": 22
+                    }
+                },
+                "show": {
+                    "$count": 217
+                }
+            },
+            "name": {
+                "$count": 1777
+            },
+            "data": {
+                "value": {
+                    "$count": 769
+                },
+                "textStyle": {
+                    "align": {
+                        "$count": 178
+                    },
+                    "baseline": {
+                        "$count": 182
+                    },
+                    "fontStyle": {
+                        "$count": 90
+                    },
+                    "$count": 454,
+                    "color": {
+                        "$count": 146
+                    },
+                    "fontWeight": {
+                        "$count": 70
+                    },
+                    "fontFamily": {
+                        "$count": 67
+                    },
+                    "fontSize": {
+                        "$count": 84
+                    }
+                },
+                "$count": 1726
+            },
+            "max": {
+                "$count": 947
+            },
+            "axisTick": {
+                "$count": 1752,
+                "interval": {
+                    "$count": 446
+                },
+                "length": {
+                    "$count": 270
+                },
+                "show": {
+                    "$count": 283
+                },
+                "lineStyle": {
+                    "$count": 290,
+                    "color": {
+                        "$count": 109
+                    },
+                    "width": {
+                        "$count": 59
+                    },
+                    "type": {
+                        "$count": 61
+                    },
+                    "shadowBlur": {
+                        "$count": 40
+                    },
+                    "opacity": {
+                        "$count": 36
+                    },
+                    "shadowOffsetY": {
+                        "$count": 18
+                    },
+                    "shadowOffsetX": {
+                        "$count": 21
+                    },
+                    "shadowColor": {
+                        "$count": 33
+                    }
+                },
+                "inside": {
+                    "$count": 225
+                }
+            },
+            "splitArea": {
+                "$count": 1020,
+                "interval": {
+                    "$count": 224
+                },
+                "show": {
+                    "$count": 120
+                },
+                "areaStyle": {
+                    "color": {
+                        "$count": 151
+                    },
+                    "shadowBlur": {
+                        "$count": 62
+                    },
+                    "$count": 231,
+                    "shadowColor": {
+                        "$count": 45
+                    },
+                    "shadowOffsetX": {
+                        "$count": 37
+                    },
+                    "shadowOffsetY": {
+                        "$count": 26
+                    },
+                    "opacity": {
+                        "$count": 49
+                    }
+                }
+            },
+            "nameTextStyle": {
+                "$count": 1870,
+                "color": {
+                    "$count": 410
+                },
+                "fontSize": {
+                    "$count": 213
+                },
+                "fontStyle": {
+                    "$count": 243
+                },
+                "fontWeight": {
+                    "$count": 170
+                },
+                "fontFamily": {
+                    "$count": 149
+                }
+            },
+            "inverse": {
+                "$count": 1362
+            },
+            "nameLocation": {
+                "$count": 1729
+            },
+            "gridIndex": {
+                "$count": 2271
+            },
+            "scale": {
+                "$count": 1456
+            },
+            "min": {
+                "$count": 1339
+            },
+            "nameGap": {
+                "$count": 1647
+            },
+            "silent": {
+                "$count": 424
+            }
+        },
+        "animationDurationUpdate": {
+            "$count": 1609
+        },
+        "animation": {
+            "$count": 2532
+        },
+        "animationDuration": {
+            "$count": 1962
+        },
+        "animationEasing": {
+            "$count": 1763
+        },
+        "animationEasingUpdate": {
+            "$count": 1534
+        }
+    }
+
+    function convert(source, target, basePath) {
+        for (var key in source) {
+            var path = basePath ? (basePath + '.' + key) : key;
+            if (key.match(/^\$/)) {
+
+            }
+            else {
+                target.children = target.children || [];
+                var child = {
+                    name: path
+                };
+                target.children.push(child);
+                convert(source[key], child, path);
+            }
+        }
+
+        if (!target.children) {
+            target.value = source.$count || 1;
+        }
+        else {
+            target.children.push({
+                name: basePath,
+                value: source.$count
+            });
+        }
+    }
+
+    var data = [];
+    convert(rawData, data, '');
+    console.log(data);
+    myChart.setOption(option = {
+        title: {
+            text: 'ECharts 配置项查询分布',
+            subtext: '2016/04',
+            left: 'leafDepth'
+        },
+        tooltip: {},
+        series: [{
+            name: 'option',
+            type: 'treemap',
+            visibleMin: 300,
+            data: data.children,
+            leafDepth: 2,
+            levels: [
+                {
+                    itemStyle: {
+                        normal: {
+                            borderColor: '#555',
+                            borderWidth: 4,
+                            gapWidth: 4
+                        }
+                    }
+                },
+                {
+                    colorSaturation: [0.3, 0.6],
+                    itemStyle: {
+                        normal: {
+                            borderColorSaturation: 0.7,
+                            gapWidth: 2,
+                            borderWidth: 2
+                        }
+                    }
+                },
+                {
+                    colorSaturation: [0.3, 0.5],
+                    itemStyle: {
+                        normal: {
+                            borderColorSaturation: 0.6,
+                            gapWidth: 1
+                        }
+                    }
+                },
+                {
+                    colorSaturation: [0.3, 0.5]
+                }
+            ]
+        }]
+    });
+
+
+    /*// 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);*/
+</script>
+
+<!-- 横线柱状图 -->
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChartHistogram = echarts.init(document.getElementById('Histogram'));
+
+
+    var optionHistogram   = {
+        title: {
+            text: '世界人口总量',
+            subtext: '数据来自网络'
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        legend: {
+            data: '2012年'
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'value',
+            boundaryGap: [0, 0.01]
+        },
+        yAxis: {
+            type: 'category',
+            data: ['巴西','印尼','美国','印度','中国','世界人口(万)']
+        },
+        series: [
+            {
+                name: '2012年',
+                type: 'bar',
+                data: [19325, 23438, 31000, 121594, 134141, 681807]
+            }
+        ]
+    };
+
+
+
+    //// 使用刚指定的配置项和数据显示图表。
+    myChartHistogram.setOption(optionHistogram);
+</script>
+
+<!-- 饼图 面积图 -->
+<script type="text/javascript">
+    var myChartLineChartByYear = echarts.init(document.getElementById('pieArea'));
+    option = {
+        title : {
+            text: '南丁格尔玫瑰图',
+            subtext: '纯属虚构',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            x : 'center',
+            y : 'bottom',
+            data:['rose1','rose2','rose3','rose4','rose5','rose6','rose7','rose8']
+        },
+        toolbox: {
+            show : true,
+            feature : {
+                mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                magicType : {
+                    show: true,
+                    type: ['pie', 'funnel']
+                },
+                restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        },
+        calculable : true,
+        series : [
+            {
+                name:'半径模式',
+                type:'pie',
+                radius : [20, 110],
+                center : ['50%', '50%'],
+                roseType : 'radius',
+                label: {
+                    normal: {
+                        show: false
+                    },
+                    emphasis: {
+                        show: true
+                    }
+                },
+                lableLine: {
+                    normal: {
+                        show: false
+                    },
+                    emphasis: {
+                        show: true
+                    }
+                },
+                data:[
+                    {value:10, name:'rose1'},
+                    {value:5, name:'rose2'},
+                    {value:15, name:'rose3'},
+                    {value:25, name:'rose4'},
+                    {value:20, name:'rose5'},
+                    {value:35, name:'rose6'},
+                    {value:30, name:'rose7'},
+                    {value:40, name:'rose8'}
+                ]
+            }
+            /*,
+            {
+                name:'面积模式',
+                type:'pie',
+                radius : [30, 110],
+                center : ['75%', '50%'],
+                roseType : 'area',
+                data:[
+                    {value:10, name:'rose1'},
+                    {value:5, name:'rose2'},
+                    {value:15, name:'rose3'},
+                    {value:25, name:'rose4'},
+                    {value:20, name:'rose5'},
+                    {value:35, name:'rose6'},
+                    {value:30, name:'rose7'},
+                    {value:40, name:'rose8'}
+                ]
+            }*/
+        ]
+    };
+
+    myChartLineChartByYear.setOption(option);
+</script>
+
+<script type="text/javascript">
+</script>
+</html>

@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kfgs.mapper.TbLandmarkEnterpriseMapper" >
+  <resultMap id="BaseResultMap" type="com.kfgs.domain.TbLandmarkEnterprise" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="product_name" property="productName" jdbcType="VARCHAR" />
+    <result column="enterprise" property="enterprise" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="trademark" property="trademark" jdbcType="VARCHAR" />
+    <result column="batch" property="batch" jdbcType="VARCHAR" />
+    <result column="bulletin_number" property="bulletinNumber" jdbcType="VARCHAR" />
+    <result column="approval_time" property="approvalTime" jdbcType="VARCHAR" />
+    <result column="approval_institution" property="approvalInstitution" jdbcType="VARCHAR" />
+    <result column="uniform_social_credit_code" property="uniformSocialCreditCode" jdbcType="VARCHAR" />
+    <result column="corporate_representative" property="corporateRepresentative" jdbcType="VARCHAR" />
+    <result column="period_of_validity" property="periodOfValidity" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="isdelete" property="isdelete" jdbcType="INTEGER" />
+    <result column="product_id" property="productId" jdbcType="VARCHAR" />
+    <result column="enterprise_id" property="enterpriseId" jdbcType="VARCHAR" />
+    <result column="classification_id" property="classificationId" jdbcType="VARCHAR" />
+    <result column="administrative_id" property="administrativeId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, product_name, enterprise, address, trademark, batch, bulletin_number, approval_time, 
+    approval_institution, uniform_social_credit_code, corporate_representative, period_of_validity, 
+    create_time, isdelete, product_id, enterprise_id, classification_id, administrative_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kfgs.domain.TbLandmarkEnterpriseExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_landmark_enterprise
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_landmark_enterprise
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_landmark_enterprise
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.kfgs.domain.TbLandmarkEnterpriseExample" >
+    delete from tb_landmark_enterprise
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.kfgs.domain.TbLandmarkEnterprise" >
+    insert into tb_landmark_enterprise (id, product_name, enterprise, 
+      address, trademark, batch, 
+      bulletin_number, approval_time, approval_institution, 
+      uniform_social_credit_code, corporate_representative, 
+      period_of_validity, create_time, isdelete, 
+      product_id, enterprise_id, classification_id, 
+      administrative_id)
+    values (#{id,jdbcType=INTEGER}, #{productName,jdbcType=VARCHAR}, #{enterprise,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{trademark,jdbcType=VARCHAR}, #{batch,jdbcType=VARCHAR}, 
+      #{bulletinNumber,jdbcType=VARCHAR}, #{approvalTime,jdbcType=VARCHAR}, #{approvalInstitution,jdbcType=VARCHAR}, 
+      #{uniformSocialCreditCode,jdbcType=VARCHAR}, #{corporateRepresentative,jdbcType=VARCHAR}, 
+      #{periodOfValidity,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{isdelete,jdbcType=INTEGER}, 
+      #{productId,jdbcType=VARCHAR}, #{enterpriseId,jdbcType=VARCHAR}, #{classificationId,jdbcType=VARCHAR}, 
+      #{administrativeId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kfgs.domain.TbLandmarkEnterprise" >
+    insert into tb_landmark_enterprise
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="productName != null" >
+        product_name,
+      </if>
+      <if test="enterprise != null" >
+        enterprise,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="trademark != null" >
+        trademark,
+      </if>
+      <if test="batch != null" >
+        batch,
+      </if>
+      <if test="bulletinNumber != null" >
+        bulletin_number,
+      </if>
+      <if test="approvalTime != null" >
+        approval_time,
+      </if>
+      <if test="approvalInstitution != null" >
+        approval_institution,
+      </if>
+      <if test="uniformSocialCreditCode != null" >
+        uniform_social_credit_code,
+      </if>
+      <if test="corporateRepresentative != null" >
+        corporate_representative,
+      </if>
+      <if test="periodOfValidity != null" >
+        period_of_validity,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="isdelete != null" >
+        isdelete,
+      </if>
+      <if test="productId != null" >
+        product_id,
+      </if>
+      <if test="enterpriseId != null" >
+        enterprise_id,
+      </if>
+      <if test="classificationId != null" >
+        classification_id,
+      </if>
+      <if test="administrativeId != null" >
+        administrative_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="productName != null" >
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="enterprise != null" >
+        #{enterprise,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="trademark != null" >
+        #{trademark,jdbcType=VARCHAR},
+      </if>
+      <if test="batch != null" >
+        #{batch,jdbcType=VARCHAR},
+      </if>
+      <if test="bulletinNumber != null" >
+        #{bulletinNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="approvalTime != null" >
+        #{approvalTime,jdbcType=VARCHAR},
+      </if>
+      <if test="approvalInstitution != null" >
+        #{approvalInstitution,jdbcType=VARCHAR},
+      </if>
+      <if test="uniformSocialCreditCode != null" >
+        #{uniformSocialCreditCode,jdbcType=VARCHAR},
+      </if>
+      <if test="corporateRepresentative != null" >
+        #{corporateRepresentative,jdbcType=VARCHAR},
+      </if>
+      <if test="periodOfValidity != null" >
+        #{periodOfValidity,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isdelete != null" >
+        #{isdelete,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null" >
+        #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseId != null" >
+        #{enterpriseId,jdbcType=VARCHAR},
+      </if>
+      <if test="classificationId != null" >
+        #{classificationId,jdbcType=VARCHAR},
+      </if>
+      <if test="administrativeId != null" >
+        #{administrativeId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.kfgs.domain.TbLandmarkEnterpriseExample" resultType="java.lang.Integer" >
+    select count(*) from tb_landmark_enterprise
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tb_landmark_enterprise
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.productName != null" >
+        product_name = #{record.productName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterprise != null" >
+        enterprise = #{record.enterprise,jdbcType=VARCHAR},
+      </if>
+      <if test="record.address != null" >
+        address = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.trademark != null" >
+        trademark = #{record.trademark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.batch != null" >
+        batch = #{record.batch,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bulletinNumber != null" >
+        bulletin_number = #{record.bulletinNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.approvalTime != null" >
+        approval_time = #{record.approvalTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.approvalInstitution != null" >
+        approval_institution = #{record.approvalInstitution,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uniformSocialCreditCode != null" >
+        uniform_social_credit_code = #{record.uniformSocialCreditCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.corporateRepresentative != null" >
+        corporate_representative = #{record.corporateRepresentative,jdbcType=VARCHAR},
+      </if>
+      <if test="record.periodOfValidity != null" >
+        period_of_validity = #{record.periodOfValidity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isdelete != null" >
+        isdelete = #{record.isdelete,jdbcType=INTEGER},
+      </if>
+      <if test="record.productId != null" >
+        product_id = #{record.productId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterpriseId != null" >
+        enterprise_id = #{record.enterpriseId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.classificationId != null" >
+        classification_id = #{record.classificationId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.administrativeId != null" >
+        administrative_id = #{record.administrativeId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tb_landmark_enterprise
+    set id = #{record.id,jdbcType=INTEGER},
+      product_name = #{record.productName,jdbcType=VARCHAR},
+      enterprise = #{record.enterprise,jdbcType=VARCHAR},
+      address = #{record.address,jdbcType=VARCHAR},
+      trademark = #{record.trademark,jdbcType=VARCHAR},
+      batch = #{record.batch,jdbcType=VARCHAR},
+      bulletin_number = #{record.bulletinNumber,jdbcType=VARCHAR},
+      approval_time = #{record.approvalTime,jdbcType=VARCHAR},
+      approval_institution = #{record.approvalInstitution,jdbcType=VARCHAR},
+      uniform_social_credit_code = #{record.uniformSocialCreditCode,jdbcType=VARCHAR},
+      corporate_representative = #{record.corporateRepresentative,jdbcType=VARCHAR},
+      period_of_validity = #{record.periodOfValidity,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      isdelete = #{record.isdelete,jdbcType=INTEGER},
+      product_id = #{record.productId,jdbcType=VARCHAR},
+      enterprise_id = #{record.enterpriseId,jdbcType=VARCHAR},
+      classification_id = #{record.classificationId,jdbcType=VARCHAR},
+      administrative_id = #{record.administrativeId,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kfgs.domain.TbLandmarkEnterprise" >
+    update tb_landmark_enterprise
+    <set >
+      <if test="productName != null" >
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="enterprise != null" >
+        enterprise = #{enterprise,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="trademark != null" >
+        trademark = #{trademark,jdbcType=VARCHAR},
+      </if>
+      <if test="batch != null" >
+        batch = #{batch,jdbcType=VARCHAR},
+      </if>
+      <if test="bulletinNumber != null" >
+        bulletin_number = #{bulletinNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="approvalTime != null" >
+        approval_time = #{approvalTime,jdbcType=VARCHAR},
+      </if>
+      <if test="approvalInstitution != null" >
+        approval_institution = #{approvalInstitution,jdbcType=VARCHAR},
+      </if>
+      <if test="uniformSocialCreditCode != null" >
+        uniform_social_credit_code = #{uniformSocialCreditCode,jdbcType=VARCHAR},
+      </if>
+      <if test="corporateRepresentative != null" >
+        corporate_representative = #{corporateRepresentative,jdbcType=VARCHAR},
+      </if>
+      <if test="periodOfValidity != null" >
+        period_of_validity = #{periodOfValidity,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isdelete != null" >
+        isdelete = #{isdelete,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null" >
+        product_id = #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseId != null" >
+        enterprise_id = #{enterpriseId,jdbcType=VARCHAR},
+      </if>
+      <if test="classificationId != null" >
+        classification_id = #{classificationId,jdbcType=VARCHAR},
+      </if>
+      <if test="administrativeId != null" >
+        administrative_id = #{administrativeId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kfgs.domain.TbLandmarkEnterprise" >
+    update tb_landmark_enterprise
+    set product_name = #{productName,jdbcType=VARCHAR},
+      enterprise = #{enterprise,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      trademark = #{trademark,jdbcType=VARCHAR},
+      batch = #{batch,jdbcType=VARCHAR},
+      bulletin_number = #{bulletinNumber,jdbcType=VARCHAR},
+      approval_time = #{approvalTime,jdbcType=VARCHAR},
+      approval_institution = #{approvalInstitution,jdbcType=VARCHAR},
+      uniform_social_credit_code = #{uniformSocialCreditCode,jdbcType=VARCHAR},
+      corporate_representative = #{corporateRepresentative,jdbcType=VARCHAR},
+      period_of_validity = #{periodOfValidity,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      isdelete = #{isdelete,jdbcType=INTEGER},
+      product_id = #{productId,jdbcType=VARCHAR},
+      enterprise_id = #{enterpriseId,jdbcType=VARCHAR},
+      classification_id = #{classificationId,jdbcType=VARCHAR},
+      administrative_id = #{administrativeId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+
+    <select id="selectHistogramByProEnt" resultType="java.util.Map">
+        select t1.city_id as area ,ifnull(t0.countNum,0) AS countNum from tb_administrative_area t1 LEFT JOIN  (
+        SELECT
+        <choose>
+            <when test="parentId ==null or parentId =='' or parentId == '610000' ">
+                SUBSTR(administrative_id FROM 1 FOR 4)  as area , count(1 ) as countNum
+            </when>
+            <otherwise>
+                administrative_id as area, count( 1  ) as countNum
+            </otherwise>
+        </choose>
+        FROM
+        tb_landmark_enterprise
+        where 1 = 1
+        <if test="year != null and year != '' and year!='全部'">
+            and  approval_time = #{year}
+        </if>
+        <if test="classification != null and classification != '' and classification !='0000' ">
+            and   classification_id IN (
+            SELECT
+            classificationId
+            FROM
+            tb_classification
+            WHERE
+            parentId = #{classification}
+            )
+        </if>
+        <if test="parentId !=null and parentId !='' and  parentId != '610000' ">
+            <choose>
+                <when test=" parentId.lastIndexOf('00') > 0 ">
+                    and administrative_id in (select city_id  from  tb_administrative_area where parent_id = #{parentId})
+                </when>
+                <otherwise>
+                    and   administrative_id = #{parentId}
+                </otherwise>
+            </choose>
+        </if>
+        GROUP BY
+        SUBSTR(administrative_id FROM 1 FOR 4)
+        ORDER BY
+        count(1)
+        ) t0 on
+        <choose>
+            <when test="parentId ==null or parentId =='' or parentId == '610000'">
+                SUBSTR(t1.city_id, 1, 4) = t0.area
+            </when>
+            <otherwise>
+                t1.city_id = t0.area
+            </otherwise>
+        </choose>
+
+
+        where 1 = 1
+        <choose>
+            <when test="parentId ==null or parentId =='' or parentId == '610000'">
+                and t1.city_id in (select city_id  from  tb_administrative_area where parent_id = '610000')
+            </when>
+            <otherwise>
+                <choose>
+                    <when test="parentId.lastIndexOf('00') > 0">
+                        and t1.parent_id = #{parentId}
+                    </when>
+                    <otherwise>
+                        and t1.city_id = #{parentId}
+                    </otherwise>
+                </choose>
+
+            </otherwise>
+        </choose>
+        order by  countNum
+    </select>
+
+    <select id="selectPieAreaEnt" resultType="java.util.Map">
+        select
+        substr(classification_id, 1, 2) AS pieArea,
+        count(1) AS countNum
+        from
+        tb_landmark_enterprise
+        where
+        1 = 1
+        <if test = "year != null and year != '' and year!='全部'" >
+            AND approval_time = #{year}
+        </if >
+        <if test = "parentId !=null and parentId !='' and  parentId != '610000' ">
+            <choose>
+                <when test = " parentId.lastIndexOf('00') > 0 " >
+                    AND administrative_id IN (SELECT  city_id  FROM  tb_administrative_area  WHERE  parent_id = #{parentId}  )
+                </when>
+                <otherwise>
+                    AND administrative_id = #{parentId}
+                </otherwise >
+            </choose>
+        </if>
+        <if test = "classification != null and classification != '' and classification !='00'" >
+            AND substr(classification_id, 1, 2) = #{classification}
+        </if>
+        GROUP BY
+        substr(classification_id, 1, 2)
+        ORDER BY
+        count(1) DESC
+    </select>
+
+    <select id="selectLineChartByYear" resultType="java.util.Map">
+        SELECT
+        approval_time as years,COUNT(1)
+        FROM
+        tb_landmark_enterprise
+        WHERE  1 = 1
+        <if test="classification != null and classification != '' and classification!='0000' ">
+            and   classification_id   in (select classificationId from tb_classification where parentId = #{classification})
+        </if>
+        <if test="parentId !=null and parentId !='' and  parentId != '610000' ">
+            <choose>
+                <when test=" parentId.lastIndexOf('00') > 0 ">
+                    and administrative_id in (select city_id  from  tb_administrative_area where parent_id = #{parentId})
+                </when>
+                <otherwise>
+                    and   administrative_id = #{parentId}
+                </otherwise>
+            </choose>
+        </if>
+        GROUP BY
+        approval_time
+        ORDER BY
+        approval_time
+    </select>
+</mapper>
