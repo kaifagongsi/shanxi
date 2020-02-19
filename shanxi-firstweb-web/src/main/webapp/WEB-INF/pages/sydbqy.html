@@ -36,16 +36,16 @@
 		<div class="logo"></div>
 		<div class="nav">
 			<ul>
-				<li><a href="/page/index.do" target="_self">首 页</a></li>
-				<li><a href="/page/dbcpzs.do" target="_self" title="地标产品展示">地标产品展示</a></li>
-				<li class="current"><a href="/page/sydbqy.do" target="_self" title="使用地标企业">使用地标企业</a></li>
-				<li><a href="http://172.17.1.249:9102/Statistics.html" target="_self" title="地标产品统计">地标产品统计</a></li>
-				<li><a href="http://172.17.2.15:9103/index.html" target="_self" title="地标保护公告">地标保护公告</a></li>
-				<li><a href="http://172.17.2.15:9103/guideBook.htm" target="_self" title="地标申报指南">地标申报指南</a></li>
-				<li><a href="http://172.17.2.15:9104/policyPapers.html" target="_self" title="政策文件">政策文件</a></li>
-				<li><a href="http://172.17.2.15:9103/productIntroduction.html" target="_self" title="地标产品介绍">地标产品介绍</a></li>
+				<li ><a href="http://localhost:9101/page/index.do" target="_self">首 页</a></li>
+				<li><a href="http://localhost:9101/page/dbcpzs.do" target="_self" title="地标产品展示">地标产品展示</a></li>
+				<li class="current"><a href="http://localhost:9101/page/sydbqy.do" target="_self" title="使用地标企业">使用地标企业</a></li>
+				<li><a href="http://localhost:9102/Statistics.html" target="_self" title="地标产品统计">地标产品统计</a></li>
+				<li><a href="http://localhost:9103/index.html" target="_self" title="地标保护公告">地标保护公告</a></li>
+				<li><a href="http://localhost:9103/guideBook.html" target="_self" title="地标申报指南">地标申报指南</a></li>
+				<li><a href="http://localhost:9104/policyPapers.html" target="_self" title="政策文件">政策文件</a></li>
+				<li><a href="http://localhost:9103/productIntroduction.html" target="_self" title="地标产品介绍">地标产品介绍</a></li>
 			</ul>
-			<!--<label class="showSearch" title="搜索"></label>-->
+			<a href="http://www.patviewer.com/" target="_blank"><label class="showSearch" title="搜索"></label></a>
 		</div>
 	</div>
 
@@ -58,11 +58,12 @@
 	<div class="ctnindex">
 		<div class="qycnt">
 
-			<div class="query" style="float:right;height:45px;line-height: 42px;margin-right: 15px; ">
+			<div class="query" style="float:left;height:45px;line-height: 42px;margin-right: 15px; ">
 				<form id="docQform" action="/dbcp/sydbqy/query.jsp"  method="post" onsubmit="return checkvalqy();">
-					<!--<input type="text" name="qv" value="请输入产品名称或企业名称"
-                    onfocus="if(this.value=='请输入产品名称或企业名称')this.value=''" onblur="if(this.value=='')this.value='请输入产品名称或企业名称'" autocomplete="off">-->
-					<input style="visibility:hidden" class="button" type="submit" value="查询">
+
+					<input type="text" name="qv" value="请输入产品名称或企业名称"
+                    onfocus="if(this.value=='请输入产品名称或企业名称')this.value=''" onblur="if(this.value=='')this.value='请输入产品名称或企业名称'" autocomplete="off">
+					<input class="button" type="submit" value="查询">
 				</form>
 			</div>
 

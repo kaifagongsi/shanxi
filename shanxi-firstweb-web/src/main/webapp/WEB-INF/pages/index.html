@@ -24,8 +24,15 @@
         }
 
     </style>
+
+    <!--  导入angularjs  -->
+    <script type="text/javascript" src="../../plugins/angularjs/angular.min.js"></script>
+    <script type="text/javascript" src="../../plugins/angularjs/angular-cookie.min.js"></script>
+    <script type="text/javascript" src="../../js/base.js"></script>
+    <script type="text/javascript" src="../../js/service/indexService.js"></script>
+    <script type="text/javascript" src="../../js/controller/indexController.js"></script>
 </head>
-<body>
+<body ng-app="shanxi-firstweb" ng-controller="indexController" <!--ng-init="getCookie()"-->>
 <div id="mbg" class="mbg"></div>
 <div class="main" style="width: 100%;height:100%;min-height: 600px;min-width: 1200px;">
     <!--top-->
@@ -43,16 +50,16 @@
             <div class="logo"></div>
             <div class="nav">
                 <ul>
-                    <li class="current"><a href="/page/index.do" target="_self">首 页</a></li>
-                    <li><a href="/page/dbcpzs.do" target="_self" title="地标产品展示">地标产品展示</a></li>
-                    <li><a href="/page/sydbqy.do" target="_self" title="使用地标企业">使用地标企业</a></li>
-                    <li><a href="http://172.17.1.249:9102/Statistics.html" target="_self" title="地标产品统计">地标产品统计</a></li>
-                    <li><a href="http://172.17.2.15:9103/index.html" target="_self" title="地标保护公告">地标保护公告</a></li>
-                    <li><a href="http://172.17.2.15:9103/guideBook.html" target="_self" title="地标申报指南">地标申报指南</a></li>
-                    <li><a href="http://172.17.2.15:9104/policyPapers.html" target="_self" title="政策文件">政策文件</a></li>
-                    <li><a href="http://172.17.2.15:9103/productIntroduction.html" target="_self" title="地标产品介绍">地标产品介绍</a></li>
+                    <li class="current"><a href="http://localhost:9101/page/index.do" target="_self">首 页</a></li>
+                    <li><a href="http://localhost:9101/page/dbcpzs.do" target="_self" title="地标产品展示">地标产品展示</a></li>
+                    <li><a href="http://localhost:9101/page/sydbqy.do" target="_self" title="使用地标企业">使用地标企业</a></li>
+                    <li><a href="http://localhost:9102/Statistics.html" target="_self" title="地标产品统计">地标产品统计</a></li>
+                    <li><a href="http://localhost:9103/index.html" target="_self" title="地标保护公告">地标保护公告</a></li>
+                    <li><a href="http://localhost:9103/guideBook.html" target="_self" title="地标申报指南">地标申报指南</a></li>
+                    <li><a href="http://localhost:9104/policyPapers.html" target="_self" title="政策文件">政策文件</a></li>
+                    <li><a href="http://localhost:9103/productIntroduction.html" target="_self" title="地标产品介绍">地标产品介绍</a></li>
                 </ul>
-               <!-- <label class="showSearch" title="搜索"></label>-->
+                <a href="http://www.patviewer.com/" target="_blank"><label class="showSearch" title="搜索"></label></a>
             </div>
         </div>
         <!--<div class="search" style="display:none;">
@@ -94,57 +101,48 @@
 
     <div class="mindex">
         <div class="ititle"></div>
-        <!--<div class="mct">
-            <div class="gy" title="" style="cursor: pointer;" onclick="location.href='http://qs.amr.guizhou.gov.cn/dbcp/gy/index.html';">
-                <div class="gycnt">
+        <div class="container"  style="width:1210px">
+            <div class="row text-center">
 
-                </div>
+                <form id="searchForm" class="form-inline" name="searchForm" method="post" target="_target">
+                    <input type="hidden"  value="电子" name="content1" ng-model="ceFormDate.content1"/>
+                    <input type="hidden" id="colname" value="申请号,公开（公告）号,申请（专利权）人,发明（设计）人,地址,名称,摘要+=" name="colname" ng-model="ceFormDate.colname"/>
+                    <!--
+                    <input type="hidden" value="cn" name="area" />
+                     -->
+                    <input type="hidden" id="strWhere" name="strWhere" ng-model="ceFormDate.strWhere"/>
+                    <input type="hidden" id="simpleSearch" name="simpleSearch" value="1" ng-model="ceFormDate.simpleSearch"/>
+                    <input type="hidden" id="presearchword" name="presearchword" ng-model="ceFormDate.presearchword"/>
+
+                    <input type="hidden" id="savesearchword" name="savesearchword" value="ON" ng-model="ceFormDate.savesearchword">
+                    <input type="hidden" id="strChannels" name="strChannels" ng-model="ceFormDate.strChannels"/>
+                    <input type="hidden" id="strSources" name="strSources" ng-model="ceFormDate.strSources"/>
+
+                    <input type="hidden" id="strSortMethod" name="strSortMethod" value="RELEVANCE" ng-model="ceFormDate.strSortMethod"/>
+                    <input type="hidden" name="strDefautCols" value="主权项, 名称, 摘要" ng-model="ceFormDate.strDefautCols"/>
+                    <input type="hidden" name="strStat" value="" ng-model="ceFormDate.strStat"/>
+                    <input type="hidden" name="iHitPointType" value="115" ng-model="ceFormDate.iHitPointType"/>
+                    <input type="hidden" id="searchKind" name="searchKind" value="tableSearch" ng-model="ceFormDate.searchKind"/>
+                    <input type="hidden" id="bContinue" name="bContinue" value="" ng-model="ceFormDate.bContinue"/>
+                    <input type="hidden" id="trsLastWhere" name="trsLastWhere" ng-model="ceFormDate.trsLastWhere"/>
+                    <input type="hidden" value="" name="channelid" ng-model="ceFormDate.channelid"/>
+
+
+                    <div class="input-append" style="margin-left:30px;">
+                        <div class="btn-group">
+                            <select id="testSelect" style="width: 70px;background-color:#ececec;">
+                                <option value="cn">专利</option>
+                                <option value="sb">商标</option>
+                                <option value="dl">地标</option>
+                            </select>
+                        </div>
+                        <input type="text" id="content" name="content" ng-trim="false" ng-model="ceFormDate.content" class="input-xxlarge" style="border-radius:0px;" placeholder="请输入关键词进行知识产权检索">
+                        <button type="button" class="btn btn-warning"  onClick="doQsearch()" ng-click="search()"><i class="icon-search icon-white"></i>&nbsp;检 索</button>
+                    </div>
+                    <div style="height:28px;"></div>
+                </form>
             </div>
-
-            <div class="cptj" onclick="location.href='http://qs.amr.guizhou.gov.cn/dbcp/dbtj/index.html';">
-                &lt;!&ndash;&ndash;&gt;
-                <div  class="itxt">
-                    我省现已获得国家质检总局批准的地理标志保护产品138个，其中，茶类23个，
-                    酒类6个，
-                    果蔬类36个，
-                    养殖类13个，
-                    中药材类23个，
-                    粮油类14个，
-                    加工食品类19个，
-                    工艺品类4个
-                    ，使用地理标志的企业244家。
-                </div>
-
-            </div>
-
-            <div class="cp">
-                <div class="cptxt" style="cursor: pointer;" onclick="location.href='http://qs.amr.guizhou.gov.cn/dbcp/dbcpzs/index.html';"></div>
-                <div id="owl-demo" class="owl-carousel">
-                    <a class="item" href="http://qs.amr.guizhou.gov.cn/dbcp/dbcpzs/index.html" target="_self" style="text-decoration: none;z-index: 1">
-                        <img src="img/index/201507/0619522726zi.png" alt="">
-                    </a>
-                    <a class="item" href="http://qs.amr.guizhou.gov.cn/dbcp/dbcpzs/index.html" target="_self" style="text-decoration: none;z-index: 1">
-                        <img src="img/index/201507/0619524175a1.png" alt="">
-                    </a>
-                    <a class="item" href="http://qs.amr.guizhou.gov.cn/dbcp/dbcpzs/index.html" target="_self" style="text-decoration: none;z-index: 1">
-                        <img src="img/index/201507/06195259xd0e.png" alt="">
-                    </a>
-                    <a class="item" href="http://qs.amr.guizhou.gov.cn/dbcp/dbcpzs/index.html" target="_self" style="text-decoration: none;z-index: 1">
-                        <img src="img/index/201507/061953133uhf.png" alt="">
-                    </a>
-                    <a class="item" href="http://qs.amr.guizhou.gov.cn/dbcp/dbcpzs/index.html" target="_self" style="text-decoration: none;z-index: 1">
-                        <img src="img/index/201507/06195329bech.png" alt="">
-                    </a>
-                    <a class="item" href="http://qs.amr.guizhou.gov.cn/dbcp/dbcpzs/index.html" target="_self" style="text-decoration: none;z-index: 1">
-                        <img src="img/index/201507/06195344ijt5.png" alt="">
-                    </a>
-                    <a class="item" href="http://qs.amr.guizhou.gov.cn/dbcp/dbcpzs/index.html" target="_self" style="text-decoration: none;z-index: 1">
-                        <img src="img/index/201507/06195405423m.png" alt="">
-                    </a>
-
-                </div>
-            </div>
-        </div>-->
+        </div>
     </div>
 
     <!--footer-->
@@ -153,4 +151,225 @@
     </div>		<!--/footer-->
 </div>
 </body>
+
+
+<script type="text/javascript">
+    //删除Cookie
+    //为了删除指定名称的cookie，可以将其过期时间设定为一个过去的时间
+    function delCookie(objName){
+        var date = new Date();
+        date.setTime(date.getTime() - 10000);
+        document.cookie = objName + "=a; expires=" + date.toGMTString()+"; path=/";//;domain=.cnipr.com
+    }
+    //获取Cookie
+    function getCookie(objName){
+        var arrStr = document.cookie.split("; ");
+        for(var i = 0;i < arrStr.length;i ++){
+            var temp = arrStr[i].split("=");
+            if(temp[0] == objName) return unescape(temp[1]);
+        }
+    }
+    //添加Cookie
+    function addCookie(objName,objValue,objHours){
+        delCookie(objName);
+        if(!navigator.cookieEnabled){
+            //不支持cookie;
+        }else{
+            var str = objName + "=" + escape(objValue);
+            //为0时不设定过期时间，浏览器关闭时cookie自动消失
+//		alert("addCookie........."+objHours);
+            if(objHours > 0){
+                var date = new Date();
+                var ms = objHours * 3600 * 1000;
+                date.setTime(date.getTime() + ms);
+                str += "; expires=" + date.toGMTString()+"; path=/";//;domain=.cnipr.com
+            }
+            document.cookie = str;
+        }
+    }
+    //window.onload = function(){
+    $(function() {
+
+
+        var username = 'guest';
+        var useremail = '';
+//alert('username='+username);
+//alert('useremail='+useremail);
+        var cookieusername = "";
+        var cookiepassword = "";
+        var logininfos = getCookie("patviewerAutoLogin");
+//alert('logininfos='+logininfos);
+        if(logininfos){
+            var loginarr = logininfos.split("|");
+            cookieusername = loginarr[0];
+            cookiepassword = loginarr[1];
+//		$('#username').val(cookieusername);
+//		$('#password').val(cookiepassword);
+//		var autoFlag = true
+//		initLoginRequestData(autoFlag);
+
+            params_user = {
+                username : cookieusername,
+                verifycode : 'cookie' + new Date(),
+//			email : email,
+                password : cookiepassword,
+//			autoFlag : autoFlag,
+                totalPages : 0
+            };
+            login(params_user);
+
+        }else{
+
+            if(username===''&&useremail===''){
+                //alert('username为空');
+                //$("#username").attr("value","guest");//清空内容
+                //$("#password").attr("value","123456");
+                $('#username').val("guest");
+                $('#password').val("123456");
+                initLoginRequestData();
+            }else{
+                //alert("menucontent="+$("#menucontent").html());
+                var menulist = $("#menulist").val();
+                showmenu(username,menulist);
+            }
+        }
+
+        //var menucontent = $("#menucontent").html();
+    });
+</script>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        var bro=$.browser;
+        var binfo="";
+        if(bro.msie) {
+            binfo="Microsoft Internet Explorer "+bro.version;
+//		alert(bro.version);
+            version = bro.version.substring(0,2);
+//		alert(version);
+            if(version=="6."||version=="7."){
+                alert("目前您正在使用ie低版本浏览器，请升级浏览器到8以上版本");
+            }
+        }
+        if(bro.mozilla) {binfo="Mozilla Firefox "+bro.version;}
+        if(bro.safari) {binfo="Apple Safari "+bro.version;}
+        if(bro.opera) {binfo="Opera "+bro.version;}
+        if(bro.chrome) {binfo="chrome "+bro.version;}
+//  alert(binfo);
+    });
+</script>
+
+
+<script type="text/javascript">
+    function gotolink(url){
+//var ctx = ;
+//alert(ctx);
+        var area = $("input[type='radio']:checked").val();
+        if(url==0){
+            //window.location.href="http://www.patviewer.com:80/showFlztSearchForm.do";
+            window.location.href="http://www.patviewer.com:80/showSemanticSearchForm.do";
+        }else if(url==1){
+            window.location.href='http://www.patviewer.com:80/showSearchForm.do?area='+area;
+        }else if(url==2){
+            window.location.href='http://www.patviewer.com:80/showLogicForm.do?area='+area;
+        }else if(url==21){
+            window.location.href='http://www.patviewer.com:80/showFlztSearchForm.do';
+        }
+
+        else if(url==3){
+            window.location.href='http://www.cnipr.com/sj/zx/';
+        }else if(url==4){
+            window.location.href='http://www.cnipr.com/fw/';
+        }else if(url==5){
+            window.location.href='http://www.cnipr.com/xy/swzs/';
+        }else if(url==6){
+            window.location.href='http://www.piac-china.com/';
+        }
+
+    }
+
+    jQuery(function(){
+        $(document).keydown(function(event){
+            if(event.keyCode==13){
+                doQsearch();
+            }
+        });
+    });
+
+    function goquicksearch(searchType) {
+        document.searchForm.strWhere.value = searchType;
+        document.searchForm.submit();
+    }
+
+    function doQsearch(){
+        var content = $('#content').val();
+        var colname = $('#colname').val();
+//alert(colname);
+//alert(content);
+
+        if(content.length>5000){
+            alert("超过非注册用户检索式长度，请注册或者联系管理员");
+            return false;
+        }
+
+
+        if(content!=null && content!=""){
+            //var area = $('input[name="area"]:checked').val();
+//			alert("area="+area);
+            var area = $('#testSelect option:selected') .val();
+            //aa and bb or cc
+            if ((content.indexOf(" and ")>-1||content.indexOf(" AND ")>-1)&&
+                (content.indexOf(" or ")==-1&&content.indexOf(" OR ")==-1)&&
+                (content.indexOf(" not ")==-1&&content.indexOf(" NOT ")==-1))
+            {
+                var reg = new RegExp(" and ","g");//g,表示全部替换。
+                content = content.replace(reg," ");
+
+                var reg1 = new RegExp(" AND ","g");//g,表示全部替换。
+                content = content.replace(reg1," ");
+
+//				content = content.replace(" and "," ");
+//				content = content.replace(" AND "," ");
+
+                $("#strWhere").attr("value",colname+"("+$.trim(content).replace(/\s+/g, " and ")+")");
+            }else if( (content.indexOf(" and ")==-1&&content.indexOf(" AND ")==-1)&&
+                (content.indexOf(" or ")>-1||content.indexOf(" OR ")>-1)||
+                (content.indexOf(" not ")>-1||content.indexOf(" NOT ")>-1)){
+
+                $("#strWhere").attr("value",colname+"("+$.trim(content)+")");
+            }else if( (content.indexOf(" and ")>-1||content.indexOf(" AND ")>-1)&&
+                (content.indexOf(" or ")>-1||content.indexOf(" OR ")>-1||
+                    content.indexOf(" not ")>-1||content.indexOf(" NOT ")>-1)){
+
+                $("#strWhere").attr("value",colname+"("+$.trim(content)+")");
+            }
+            else{
+                $("#strWhere").attr("value",colname+"("+$.trim(content).replace(/\s+/g, " and ")+")");
+            }
+
+//alert($("#strWhere").val());
+
+            if(area=='cn'){
+                $("#strChannels").val("14,15,16,17");
+                $("#strSources").val("fmsq_ft");
+                $("#searchForm").attr("action","http://www.patviewer.com/pretoJsonOverView.do?simpleSearch=1&pageType=all&quickSearchEncode=UTF8");
+            }else if(area=='sb'){
+                $("#strWhere").attr("value","商标名称="+content);
+                $("#searchForm").attr("action","http://www.patviewer.com/pretoJsonOverViewsb.do?wap=2&simpleSearch=1&pageType=all&quickSearchEncode=UTF8");
+            }else if(area=='dl'){
+                $("#strWhere").attr("value","产品名称="+content);
+                $("#searchForm").attr("action","http://www.patviewer.com/pretoJsonOverViewdl.do?wap=2&simpleSearch=1&pageType=all&quickSearchEncode=UTF8");
+            }
+            else{
+                $("#strChannels").val("18,19,20,21,22,23,24,25");
+                $("#strSources").val("18,19,20,21,22,23,24,25");
+                $("#searchForm").attr("action","http://www.patviewer.com/pretoJsonOverView.do?simpleSearch=1&pageType=all&quickSearchEncode=UTF8");
+            }
+            $("#searchForm").submit();
+        }else{
+            return false;
+        }
+    }
+</script>
 </html>
