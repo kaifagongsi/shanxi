@@ -32,7 +32,7 @@
     <script type="text/javascript" src="../../js/service/indexService.js"></script>
     <script type="text/javascript" src="../../js/controller/indexController.js"></script>
 </head>
-<body ng-app="shanxi-firstweb" ng-controller="indexController" <!--ng-init="getCookie()"-->>
+<body ng-app="shanxi-firstweb" ng-controller="indexController" ng-init="getCookie()">
 <div id="mbg" class="mbg"></div>
 <div class="main" style="width: 100%;height:100%;min-height: 600px;min-width: 1200px;">
     <!--top-->
@@ -130,14 +130,14 @@
 
                     <div class="input-append" style="margin-left:30px;">
                         <div class="btn-group">
-                            <select id="testSelect" style="width: 70px;background-color:#ececec;">
+                            <select id="testSelect" style="width: 70px;background-color:#ececec;" ng-model="area">
                                 <option value="cn">专利</option>
                                 <option value="sb">商标</option>
                                 <option value="dl">地标</option>
                             </select>
                         </div>
                         <input type="text" id="content" name="content" ng-trim="false" ng-model="ceFormDate.content" class="input-xxlarge" style="border-radius:0px;" placeholder="请输入关键词进行知识产权检索">
-                        <button type="button" class="btn btn-warning"  onClick="doQsearch()" ng-click="search()"><i class="icon-search icon-white"></i>&nbsp;检 索</button>
+                        <button type="button" class="btn btn-warning"   ng-click="search()"><i class="icon-search icon-white"></i>&nbsp;检 索</button>
                     </div>
                     <div style="height:28px;"></div>
                 </form>
