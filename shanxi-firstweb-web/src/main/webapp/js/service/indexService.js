@@ -7,6 +7,6 @@ app.service('indexService',function ($http) {
 
     this.searchQuest = function (url,formDate) {
         console.log(formDate)
-        return $http.post("../../Simulation/getResponseBody.do?url=" + url, formDate );
+        return $http.post("../../Simulation/getResponseBody.do?surl=" + url, formDate);
     }
 });

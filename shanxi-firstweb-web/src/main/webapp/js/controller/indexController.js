@@ -1,5 +1,5 @@
 //控制层
-app.controller('indexController',function ($scope,indexService,$cookieStore) {
+app.controller('indexController',function ($scope,indexService,$cookieStore,$location) {
 
     //加载cookie
     $scope.getCookie = function () {
@@ -42,6 +42,7 @@ app.controller('indexController',function ($scope,indexService,$cookieStore) {
         'savesearchword':'ON',
         'strSources':'',
         'strChannels':'',
+        'strSortMethod':'RELEVANCE',
         'strDefautCols':'主权项, 名称, 摘要',
         'strStat':'',
         'iHitPointType':'115',
@@ -107,6 +108,8 @@ app.controller('indexController',function ($scope,indexService,$cookieStore) {
             }
             indexService.searchQuest($scope.searchUrl,$scope.ceFormDate).success(
                 function (response) {
+                    var url = $location.absUrl().split("angularJS_")[0]+'angularJS_newTab.html';
+                    window.open(url,"_blank",response)
                     console.log(response);
                 }
             );
