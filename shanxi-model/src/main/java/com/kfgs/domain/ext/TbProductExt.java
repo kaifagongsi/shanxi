@@ -1,6 +1,5 @@
 package com.kfgs.domain.ext;
 
-import com.kfgs.domain.TbProduct;
 import lombok.Data;
 import lombok.ToString;
 

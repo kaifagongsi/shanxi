@@ -1,10 +1,7 @@
 package com.kfgs.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
-import com.kfgs.domain.TbProductShow;
-import com.kfgs.domain.TbProductShowExample;
 import com.kfgs.firstweb.service.UploadService;
-import com.kfgs.mapper.TbProductShowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.HashMap;
