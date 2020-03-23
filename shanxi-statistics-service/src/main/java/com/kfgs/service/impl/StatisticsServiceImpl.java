@@ -276,7 +276,7 @@ public class StatisticsServiceImpl  implements StatisticsService {
         }
         Map<Integer,Map> mapEnterprise = tbEnterpriseMapper.selectByIdAndName();
         for(Map.Entry<Integer,Map> m : mapEnterprise.entrySet()){
-            enterpriseIdAndName.put(String.valueOf(m.getKey()),((HashMap<String,String>)m.getValue()).get("name"));
+            enterpriseIdAndName.put(String.valueOf(m.getKey()),((HashMap<String,String>)m.getValue()).get("enterprise_name"));
         }
 
         //查找企业和产品对应的id   没有用表中对应的产品名称和企业名称是担心后续再添加产品和企业关系时，没有添加

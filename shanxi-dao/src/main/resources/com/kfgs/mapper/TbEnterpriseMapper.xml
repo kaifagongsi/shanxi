@@ -346,7 +346,7 @@
     </select>
 
     <select id="selectByIdInList" resultType="com.kfgs.domain.TbEnterprise">
-        select id,name from tb_enterprise where id in
+        select id,enterprise_name from tb_enterprise where id in
         <foreach collection="list" item="item" open="(" close=")" separator=",">
             #{item}
         </foreach>
@@ -357,7 +357,7 @@
     </select>
 
     <select id="selectByIdAndName" resultType="java.util.Map">
-         select  id,name from    tb_enterprise
+         select  id,enterprise_name from    tb_enterprise
     </select>
 
     <select id="selectHistogramByProEnt" resultType="java.util.Map">
