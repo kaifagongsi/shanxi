@@ -2,9 +2,11 @@ package com.kfgs.mapper;
 
 import com.kfgs.domain.TbEnterprise;
 import com.kfgs.domain.TbEnterpriseExample;
+import org.apache.ibatis.annotations.MapKey;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface TbEnterpriseMapper {
     int countByExample(TbEnterpriseExample example);
@@ -28,4 +30,21 @@ public interface TbEnterpriseMapper {
     int updateByPrimaryKeySelective(TbEnterprise record);
 
     int updateByPrimaryKey(TbEnterprise record);
+
+  /*  List<Map> selectEnterpriseGroupByApprovalYear();
+
+    List<TbEnterprise> selectByIdInList(List list);
+
+    List<String> selectDistinctEnterpriseApprovalYear();*/
+
+
+
+    //柱状图
+    List<Map> selectHistogramByProEnt(@Param("year")String year, @Param("classification") String classification, @Param("parentId")String parentId);
+
+    //获取面积饼图数据
+    List<Map> selectPieAreaEnt(@Param("year")String year,@Param("classification") String classification,@Param("parentId")String parentId);
+
+    //折线图数据
+    List<Map> selectLineChartByYear(@Param("classification") String classification, @Param("parentId") String parentId);
 }

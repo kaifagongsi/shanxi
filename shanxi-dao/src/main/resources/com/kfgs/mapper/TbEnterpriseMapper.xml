@@ -338,4 +338,132 @@
       approval_year = #{approvalYear,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+    <!--新增方法 -->
+    <select id="selectHistogramByProEnt" resultType="java.util.Map">
+        select t1.city_id as area ,ifnull(t0.countNum,0) AS countNum from tb_administrative_area t1 LEFT JOIN  (
+        SELECT
+        <choose>
+            <when test="parentId ==null or parentId =='' or parentId == '610000' ">
+                SUBSTR(administrative_id FROM 1 FOR 4)  as area , count(1 ) as countNum
+            </when>
+            <otherwise>
+                administrative_id as area, count( 1  ) as countNum
+            </otherwise>
+        </choose>
+        FROM
+        tb_landmark_enterprise
+        where 1 = 1
+        <if test="year != null and year != '' and year!='全部'">
+            and  approval_time = #{year}
+        </if>
+        <if test="classification != null and classification != '' and classification !='0000' ">
+            and   classification_id IN (
+            SELECT
+            classificationId
+            FROM
+            tb_classification
+            WHERE
+            parentId = #{classification}
+            )
+        </if>
+        <if test="parentId !=null and parentId !='' and  parentId != '610000' ">
+            <choose>
+                <when test=" parentId.lastIndexOf('00') > 0 ">
+                    and administrative_id in (select city_id  from  tb_administrative_area where parent_id = #{parentId})
+                </when>
+                <otherwise>
+                    and   administrative_id = #{parentId}
+                </otherwise>
+            </choose>
+        </if>
+        GROUP BY
+        SUBSTR(administrative_id FROM 1 FOR 4)
+        ORDER BY
+        count(1)
+        ) t0 on
+        <choose>
+            <when test="parentId ==null or parentId =='' or parentId == '610000'">
+                SUBSTR(t1.city_id, 1, 4) = t0.area
+            </when>
+            <otherwise>
+                t1.city_id = t0.area
+            </otherwise>
+        </choose>
+
+
+        where 1 = 1
+        <choose>
+            <when test="parentId ==null or parentId =='' or parentId == '610000'">
+                and t1.city_id in (select city_id  from  tb_administrative_area where parent_id = '610000')
+            </when>
+            <otherwise>
+                <choose>
+                    <when test="parentId.lastIndexOf('00') > 0">
+                        and t1.parent_id = #{parentId}
+                    </when>
+                    <otherwise>
+                        and t1.city_id = #{parentId}
+                    </otherwise>
+                </choose>
+
+            </otherwise>
+        </choose>
+        order by  countNum
+    </select>
+
+    <select id="selectPieAreaEnt" resultType="java.util.Map">
+        select
+        substr(classification_id, 1, 2) AS pieArea,
+        count(1) AS countNum
+        from
+        tb_landmark_enterprise
+        where
+        1 = 1
+        <if test = "year != null and year != '' and year!='全部'" >
+            AND approval_time = #{year}
+        </if >
+        <if test = "parentId !=null and parentId !='' and  parentId != '610000' ">
+            <choose>
+                <when test = " parentId.lastIndexOf('00') > 0 " >
+                    AND administrative_id IN (SELECT  city_id  FROM  tb_administrative_area  WHERE  parent_id = #{parentId}  )
+                </when>
+                <otherwise>
+                    AND administrative_id = #{parentId}
+                </otherwise >
+            </choose>
+        </if>
+        <if test = "classification != null and classification != '' and classification !='00'" >
+            AND substr(classification_id, 1, 2) = #{classification}
+        </if>
+        GROUP BY
+        substr(classification_id, 1, 2)
+        ORDER BY
+        count(1) DESC
+    </select>
+
+    <select id="selectLineChartByYear" resultType="java.util.Map">
+        SELECT
+        approval_time as years,COUNT(1)
+        FROM
+        tb_landmark_enterprise
+        WHERE  1 = 1
+        <if test="classification != null and classification != '' and classification!='0000' ">
+            and   classification_id   in (select classificationId from tb_classification where parentId = #{classification})
+        </if>
+        <if test="parentId !=null and parentId !='' and  parentId != '610000' ">
+            <choose>
+                <when test=" parentId.lastIndexOf('00') > 0 ">
+                    and administrative_id in (select city_id  from  tb_administrative_area where parent_id = #{parentId})
+                </when>
+                <otherwise>
+                    and   administrative_id = #{parentId}
+                </otherwise>
+            </choose>
+        </if>
+        GROUP BY
+        approval_time
+        ORDER BY
+        approval_time
+    </select>
 </mapper>
