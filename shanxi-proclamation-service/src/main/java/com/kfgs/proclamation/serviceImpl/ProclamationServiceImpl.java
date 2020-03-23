@@ -116,7 +116,7 @@ public class ProclamationServiceImpl implements ProclamtionService {
     public Map<String,Object> selectByPrimaryKey(Map pData){
         Map<String,Object> map = new HashMap<>();
         TbProtectionNotice model = tbProtectionNoticeMapper.selectByPrimaryKey(Integer.parseInt(pData.get("id").toString()));
-        System.out.println("=============" +  new String(model.getContent()));
+        //System.out.println("=============" +  new String(model.getContent()));
         map.put("content",new String(model.getContent()));
         return map;
     }
