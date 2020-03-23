@@ -1,8 +1,9 @@
 package com.kfgs.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class TbTargetEnterpriseProduct {
+public class TbTargetEnterpriseProduct  implements Serializable {
     private Integer id;
 
     private Date createTime;

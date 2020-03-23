@@ -1,8 +1,9 @@
 package com.kfgs.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class TbClassification {
+public class TbClassification implements Serializable {
     private Integer id;
 
     private String name;

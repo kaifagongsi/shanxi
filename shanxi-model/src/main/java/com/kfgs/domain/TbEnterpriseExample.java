@@ -1,10 +1,11 @@
 package com.kfgs.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class TbEnterpriseExample {
+public class TbEnterpriseExample implements Serializable {
     protected String orderByClause;
 
     protected boolean distinct;

@@ -1,10 +1,11 @@
 package com.kfgs.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class TbClassificationExample {
+public class TbClassificationExample  implements Serializable {
     protected String orderByClause;
 
     protected boolean distinct;

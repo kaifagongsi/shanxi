@@ -1,5 +1,6 @@
 package com.kfgs.domain.ext;
 
+import com.kfgs.domain.TbProduct;
 import lombok.Data;
 import lombok.ToString;
 
@@ -14,7 +15,7 @@ import java.io.Serializable;
  */
 @Data
 @ToString
-public class TbProductExt extends TbProduct  implements Serializable {
+public class TbProductExt extends TbProduct implements Serializable {
     private String  administrativeAreaName;
     private String  classificationName;
 

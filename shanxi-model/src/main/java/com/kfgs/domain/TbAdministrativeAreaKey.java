@@ -1,6 +1,8 @@
 package com.kfgs.domain;
 
-public class TbAdministrativeAreaKey {
+import java.io.Serializable;
+
+public class TbAdministrativeAreaKey implements Serializable {
     private Integer id;
 
     private String cityId;

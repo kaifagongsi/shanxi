@@ -1,8 +1,9 @@
 package com.kfgs.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class TbComplaintsAboutRightsProtection {
+public class TbComplaintsAboutRightsProtection implements Serializable {
     private Integer id;
 
     private String objectOfComplaint;
