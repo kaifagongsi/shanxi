@@ -733,7 +733,7 @@ public class StatisticsServiceImpl  implements StatisticsService {
 
     /**
      * 功能描述:
-     * 〈根据选中的条件， 获取企业柱状图数量〉
+     * 〈根据选中的条件， 获取用标企业柱状图数量〉
      * @param approvalYear 批准年度
      * @param classification 产品分类
      * @param area 行政区域

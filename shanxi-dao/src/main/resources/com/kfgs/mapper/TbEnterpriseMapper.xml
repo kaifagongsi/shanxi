@@ -372,7 +372,7 @@
             </otherwise>
         </choose>
         FROM
-        tb_landmark_enterprise
+        tb_enterprise
         where 1 = 1
         <if test="year != null and year != '' and year!='全部'">
             and  approval_time = #{year}
