@@ -6,20 +6,20 @@
     <meta content="陕西地理标志保护产品,陕西地理标志保护产品,产品,地理,保护,标志,地理标志,地理标志保护,地理标志保护产品,茶,酒,果蔬,养殖,中药材,经济作物,地方特种,地方特色食品,食品,工艺品" name="keywords" />
     <meta content="" name="description" />
 
-    <script type="text/javascript" src="http://172.17.1.206:9101/js/jquery-1.8.3.js"></script>
-    <script type="text/javascript" src="http://172.17.1.206:9101/js/jquery.SuperSlide.2.1.1.js"></script>
-    <script type="text/javascript" src="http://172.17.1.206:9101/js/jquery.hoverdir.js"></script>
+    <script type="text/javascript" src="http://172.17.1.51:9101/js/jquery-1.8.3.js"></script>
+    <script type="text/javascript" src="http://172.17.1.51:9101/js/jquery.SuperSlide.2.1.1.js"></script>
+    <script type="text/javascript" src="http://172.17.1.51:9101/js/jquery.hoverdir.js"></script>
 
     <!--  导入angularjs  -->
-    <script type="text/javascript" src="http://172.17.1.206:9101/plugins/angularjs/angular.min.js"></script>
-    <script type="text/javascript" src="http://172.17.1.206:9101/js/base.js"></script>
-    <script type="text/javascript" src="http://172.17.1.206:9101/js/service/sxdbcpzsService.js"></script>
-    <script type="text/javascript" src="http://172.17.1.206:9101/js/controller/sxdbcpzsController.js"></script>
+    <script type="text/javascript" src="http://172.17.1.51:9101/plugins/angularjs/angular.min.js"></script>
+    <script type="text/javascript" src="http://172.17.1.51:9101/js/base.js"></script>
+    <script type="text/javascript" src="http://172.17.1.51:9101/js/service/sxdbcpzsService.js"></script>
+    <script type="text/javascript" src="http://172.17.1.51:9101/js/controller/sxdbcpzsController.js"></script>
 
     <!--<script type="text/javascript" src="../../js/jquery.js"></script>-->
     <!-- custom scrollbar plugin -->
-    <link rel="stylesheet" type="text/css" href="http://172.17.1.206:9101/css/index/jquery.mCustomScrollbar.css" />
-    <script src="http://172.17.1.206:9101/js/index/jquery.mCustomScrollbar.concat.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://172.17.1.51:9101/css/index/jquery.mCustomScrollbar.css" />
+    <script src="http://172.17.1.51:9101/js/index/jquery.mCustomScrollbar.concat.min.js"></script>
 
 </head>
 
@@ -28,15 +28,15 @@
 <#--${tongji['0400蔬菜类'][0].classificationid}-------------------------------->
 <div class="main" style="width: 100%;height: 100%;min-height: 600px;min-width: 1200px;" ng-controller="sxdbcpzsController" ng-init="search()">
     <!--top-->
-    <link rel="stylesheet" type="text/css" href="http://172.17.1.206:9101/css/index/dbcp.css">
-    <link rel="stylesheet" type="text/css" href="http://172.17.1.206:9101/css/index/cmsstyle.css">
-    <link href="http://172.17.1.206:9101/css/index/atlas.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="http://172.17.1.51:9101/css/index/dbcp.css">
+    <link rel="stylesheet" type="text/css" href="http://172.17.1.51:9101/css/index/cmsstyle.css">
+    <link href="http://172.17.1.51:9101/css/index/atlas.css" rel="stylesheet"/>
 
     <!-- custom scrollbar plugin -->
-    <link rel="stylesheet" type="text/css" href="http://172.17.1.206:9101/css/index/jquery.mCustomScrollbar.css" />
-    <script src="http://172.17.1.206:9101/js/index/jquery.mCustomScrollbar.concat.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://172.17.1.51:9101/css/index/jquery.mCustomScrollbar.css" />
+    <script src="http://172.17.1.51:9101/js/index/jquery.mCustomScrollbar.concat.min.js"></script>
 
-    <script type="text/javascript" src="http://172.17.1.206:9101/js/index/mcomm.js"></script>
+    <script type="text/javascript" src="http://172.17.1.51:9101/js/index/mcomm.js"></script>
 
 
     <div class="headerbg">
@@ -48,10 +48,10 @@
                     <li class="current"><a href="/page/dbcpzs.do" target="_self" title="地标产品展示">地标产品展示</a></li>
                     <li><a href="/page/sydbqy.do" title="使用地标企业">使用地标企业</a></li>
                     <li><a href="http://172.17.1.249:9102/Statistics.html" target="_self" title="地标产品统计">地标产品统计</a></li>
-                    <li><a href="http://172.17.2.15:9103/index.html" target="_self" title="地标保护公告">地标保护公告</a></li>
-                    <li><a href="http://172.17.2.15:9103/guideBook.htm" target="_self" title="地标申报指南">地标申报指南</a></li>
-                    <li><a href="http://172.17.2.15:9104/policyPapers.html" target="_self" title="政策文件">政策文件</a></li>
-                    <li><a href="http://172.17.2.15:9103/productIntroduction.html" target="_self" title="地标产品介绍">地标产品介绍</a></li>
+                    <li><a href="http://172.17.1.58:9103/index.html" target="_self" title="地标保护公告">地标保护公告</a></li>
+                    <li><a href="http://172.17.1.58:9103/guideBook.htm" target="_self" title="地标申报指南">地标申报指南</a></li>
+                    <li><a href="http://172.17.1.58:9104/policyPapers.html" target="_self" title="政策文件">政策文件</a></li>
+                    <li><a href="http://172.17.1.58:9103/productIntroduction.html" target="_self" title="地标产品介绍">地标产品介绍</a></li>
                 </ul>
                 <label class="showSearch" title="搜索"></label>
             </div>
@@ -69,12 +69,12 @@
                                 <li>
                                     <div class="ad">
                                         <div class="tl">${k?substring(4)}</div>
-                                        <img src="http://172.17.1.206:9101/img/index/201507/${k?substring(0,4)}.jpg" />
+                                        <img src="http://172.17.1.51:9101/img/index/201507/${k?substring(0,4)}.jpg" />
                                         <div class=" cplist">
                                             <p>
                                                 <#list tongji[k] as list>
                                                     <#--${list.classificationid}-->
-                                                    <a href="http://172.17.1.206:9101/page/detail.do#?idVal=${list.id}&titleVal=${list.name}" title="${list.name}" target="_blank">${list.name}</a>
+                                                    <a href="http://172.17.1.51:9101/page/detail.do#?idVal=${list.id}&titleVal=${list.name}" title="${list.name}" target="_blank">${list.name}</a>
                                                 </#list>
                                             </p>
                                         </div>
