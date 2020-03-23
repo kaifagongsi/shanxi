@@ -54,5 +54,5 @@ public interface TbEnterpriseMapper {
     List<Map> selectPieAreaEnt(@Param("year")String year,@Param("classification") String classification,@Param("parentId")String parentId);
 
     //折线图数据
-    List<Map> selectLineChartByYear(@Param("classification") String classification, @Param("parentId") String parentId);
+    List<Map> selectLineChartByYearEnt(@Param("classification") String classification, @Param("parentId") String parentId);
 }

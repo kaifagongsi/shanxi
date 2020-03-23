@@ -256,6 +256,50 @@ public class StatisticsServiceImpl  implements StatisticsService {
         return listMap;
     }
 
+    //list 去重
+    private List<String> repeatListWayTwo(List<String> list){
+        //初始化HashSet对象，并把list对象元素赋值给HashSet对象
+        HashSet set = new HashSet(list);
+        //把List集合所有元素清空
+        list.clear();
+        //把HashSet对象添加至List集合
+        list.addAll(set);
+        return list;
+    }
+
+    /**
+     * 功能描述:
+     * 〈在企业列表中查找多个 符合条件的提企业〉
+     *
+     * @param tbEnterpriseList 企业列表
+     * @param enterpriseId  企业的id
+     * @return : java.util.Map
+     * @author : lxl
+     * @date : 2019/12/25 9:55
+     */
+    private Map findEnterpriseName(List<TbEnterprise> tbEnterpriseList, String enterpriseId) {
+        Map map1 = new HashMap();
+        //解析 enterpriseId 格式
+        String str[] = enterpriseId.split("-");
+        List<String> list = Arrays.asList(str);
+        List<String> enterpriseName = new ArrayList();
+        for(String s : list){
+            enterpriseName.add(String.valueOf(enterpriseIdAndName.get(s)));
+        }
+        //组装map
+        // List map =   new ArrayList();
+
+        Map m2Count = new HashMap();
+        m2Count.put("$count",1);
+        for(String s : enterpriseName){
+            Map m = new HashMap();
+            m.put(s,m2Count);
+            //  map.add(m);
+            map1.putAll(m);
+        }
+        return map1;
+    }
+
     /**
      * 功能描述:
      * 〈获取每个产品有哪些公司在做〉
@@ -328,49 +372,10 @@ public class StatisticsServiceImpl  implements StatisticsService {
     }
 
 
-    /**
-     * 功能描述:
-     * 〈在企业列表中查找多个 符合条件的提企业〉
-     *
-     * @param tbEnterpriseList 企业列表
-     * @param enterpriseId  企业的id
-     * @return : java.util.Map
-     * @author : lxl
-     * @date : 2019/12/25 9:55
-     */
-    private Map findEnterpriseName(List<TbEnterprise> tbEnterpriseList, String enterpriseId) {
-        Map map1 = new HashMap();
-        //解析 enterpriseId 格式
-        String str[] = enterpriseId.split("-");
-        List<String> list = Arrays.asList(str);
-        List<String> enterpriseName = new ArrayList();
-        for(String s : list){
-            enterpriseName.add(String.valueOf(enterpriseIdAndName.get(s)));
-        }
-        //组装map
-       // List map =   new ArrayList();
-
-        Map m2Count = new HashMap();
-        m2Count.put("$count",1);
-        for(String s : enterpriseName){
-            Map m = new HashMap();
-            m.put(s,m2Count);
-          //  map.add(m);
-            map1.putAll(m);
-        }
-        return map1;
-    }
 
 
-    private List<String> repeatListWayTwo(List<String> list){
-        //初始化HashSet对象，并把list对象元素赋值给HashSet对象
-        HashSet set = new HashSet(list);
-        //把List集合所有元素清空
-        list.clear();
-        //把HashSet对象添加至List集合
-        list.addAll(set);
-        return list;
-    }
+
+
 
     /**
      * 功能描述:
@@ -386,7 +391,7 @@ public class StatisticsServiceImpl  implements StatisticsService {
         //获取行政区域
         List<TbAdministrativeArea> administrativeAreas = tbAdministrativeAreaMapper.selectByExample(null);
         Map map = new HashMap();
-            map.put("select",administrativeAreas);
+        map.put("select",administrativeAreas);
         //查找批准年度
         List<String> approvalYear = tbProductMapper.selectDistinctProductApprovalYear();
         //处理list
@@ -399,23 +404,9 @@ public class StatisticsServiceImpl  implements StatisticsService {
     }
 
 
-
-    //添加首位
-    public List getListClassifications(List list){
-        List stringList  = new ArrayList<>();
-        TbClassification classification = new TbClassification();
-        classification.setName("请选择");
-        classification.setClassificationid("");
-        stringList.add(classification);
-        //stringList.add(new TbClassification().setName("全部"));
-        stringList.addAll(list);
-        return stringList;
-    }
-
     public List getClassifications(){
         TbClassificationExample slectExample = new TbClassificationExample();
         slectExample.createCriteria().andParentidEqualTo("0000");
-        //return getListClassifications(tbClassificationMapper.selectByExample(slectExample));
         return tbClassificationMapper.selectByExample(slectExample);
     }
 
@@ -822,7 +813,7 @@ public class StatisticsServiceImpl  implements StatisticsService {
 
     /**
      * 功能描述:
-     * 根据选中的条件， 获取企业柱状图数量〉
+     * 根据选中的条件， 获取企业饼状图数量〉
      * @param approvalYear 批准年度
      * @param classification 产品分类
      * @param area 行政区域
@@ -889,7 +880,7 @@ public class StatisticsServiceImpl  implements StatisticsService {
     //折线图
     public Map getLineChartByYearEnt(String area,String classification){
         Map mapLineChartDate = new HashMap();
-        List<Map> lineChartDate = tbEnterpriseMapper.selectLineChartByYear(classification, area);
+        List<Map> lineChartDate = tbEnterpriseMapper.selectLineChartByYearEnt(classification, area);
         List<String> lineCharListEnt = new ArrayList<>();
         List<String> lineCharCountEnt = new ArrayList<>();
         for(Map<String,String> m : lineChartDate){

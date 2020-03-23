@@ -434,10 +434,11 @@
 
     <select id="selectPieAreaEnt" resultType="java.util.Map">
         select
-        substr(classification_id, 1, 2) AS pieArea,
+        substr(classificationId, 1, 2) AS pieArea,
         count(1) AS countNum
         from
-        tb_landmark_enterprise
+        tb_enterprise en
+        left join tb_product pro on en.product_id = pro.id
         where
         1 = 1
         <if test = "year != null and year != '' and year!='全部'" >
@@ -454,19 +455,19 @@
             </choose>
         </if>
         <if test = "classification != null and classification != '' and classification !='00'" >
-            AND substr(classification_id, 1, 2) = #{classification}
+            AND substr(classificationId, 1, 2) = #{classification}
         </if>
         GROUP BY
-        substr(classification_id, 1, 2)
+        substr(classificationId, 1, 2)
         ORDER BY
         count(1) DESC
     </select>
 
-    <select id="selectLineChartByYear" resultType="java.util.Map">
+    <select id="selectLineChartByYearEnt" resultType="java.util.Map">
         SELECT
-        approval_time as years,COUNT(1)
+        approval_year as years,COUNT(1)
         FROM
-        tb_landmark_enterprise
+        tb_enterprise
         WHERE  1 = 1
         <if test="classification != null and classification != '' and classification!='0000' ">
             and   classification_id   in (select classificationId from tb_classification where parentId = #{classification})
@@ -482,8 +483,8 @@
             </choose>
         </if>
         GROUP BY
-        approval_time
+        approval_year
         ORDER BY
-        approval_time
+        approval_year
     </select>
 </mapper>
