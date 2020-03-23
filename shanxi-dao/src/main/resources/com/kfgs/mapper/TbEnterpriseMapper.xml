@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kfgs.mapper.TbEnterpriseMapper" >
+  <resultMap id="BaseResultMap" type="com.kfgs.domain.TbEnterprise" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="enterprise_name" property="enterpriseName" jdbcType="VARCHAR" />
+    <result column="enterprise_address" property="enterpriseAddress" jdbcType="VARCHAR" />
+    <result column="administrative_id" property="administrativeId" jdbcType="VARCHAR" />
+    <result column="product_id" property="productId" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="isdelete" property="isdelete" jdbcType="INTEGER" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="corporate_representative" property="corporateRepresentative" jdbcType="VARCHAR" />
+    <result column="approval_announcement_no_enterprise" property="approvalAnnouncementNoEnterprise" jdbcType="VARCHAR" />
+    <result column="uniform_social_credit_code" property="uniformSocialCreditCode" jdbcType="VARCHAR" />
+    <result column="approval_authority_enterprise" property="approvalAuthorityEnterprise" jdbcType="VARCHAR" />
+    <result column="approval_year" property="approvalYear" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, enterprise_name, enterprise_address, administrative_id, product_id, create_time, 
+    isdelete, brand, corporate_representative, approval_announcement_no_enterprise, uniform_social_credit_code, 
+    approval_authority_enterprise, approval_year
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kfgs.domain.TbEnterpriseExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_enterprise
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_enterprise
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_enterprise
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.kfgs.domain.TbEnterpriseExample" >
+    delete from tb_enterprise
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.kfgs.domain.TbEnterprise" >
+    insert into tb_enterprise (id, enterprise_name, enterprise_address, 
+      administrative_id, product_id, create_time, 
+      isdelete, brand, corporate_representative, 
+      approval_announcement_no_enterprise, uniform_social_credit_code, 
+      approval_authority_enterprise, approval_year
+      )
+    values (#{id,jdbcType=INTEGER}, #{enterpriseName,jdbcType=VARCHAR}, #{enterpriseAddress,jdbcType=VARCHAR}, 
+      #{administrativeId,jdbcType=VARCHAR}, #{productId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{isdelete,jdbcType=INTEGER}, #{brand,jdbcType=VARCHAR}, #{corporateRepresentative,jdbcType=VARCHAR}, 
+      #{approvalAnnouncementNoEnterprise,jdbcType=VARCHAR}, #{uniformSocialCreditCode,jdbcType=VARCHAR}, 
+      #{approvalAuthorityEnterprise,jdbcType=VARCHAR}, #{approvalYear,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.kfgs.domain.TbEnterprise" >
+    insert into tb_enterprise
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="enterpriseName != null" >
+        enterprise_name,
+      </if>
+      <if test="enterpriseAddress != null" >
+        enterprise_address,
+      </if>
+      <if test="administrativeId != null" >
+        administrative_id,
+      </if>
+      <if test="productId != null" >
+        product_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="isdelete != null" >
+        isdelete,
+      </if>
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="corporateRepresentative != null" >
+        corporate_representative,
+      </if>
+      <if test="approvalAnnouncementNoEnterprise != null" >
+        approval_announcement_no_enterprise,
+      </if>
+      <if test="uniformSocialCreditCode != null" >
+        uniform_social_credit_code,
+      </if>
+      <if test="approvalAuthorityEnterprise != null" >
+        approval_authority_enterprise,
+      </if>
+      <if test="approvalYear != null" >
+        approval_year,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="enterpriseName != null" >
+        #{enterpriseName,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseAddress != null" >
+        #{enterpriseAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="administrativeId != null" >
+        #{administrativeId,jdbcType=VARCHAR},
+      </if>
+      <if test="productId != null" >
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isdelete != null" >
+        #{isdelete,jdbcType=INTEGER},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="corporateRepresentative != null" >
+        #{corporateRepresentative,jdbcType=VARCHAR},
+      </if>
+      <if test="approvalAnnouncementNoEnterprise != null" >
+        #{approvalAnnouncementNoEnterprise,jdbcType=VARCHAR},
+      </if>
+      <if test="uniformSocialCreditCode != null" >
+        #{uniformSocialCreditCode,jdbcType=VARCHAR},
+      </if>
+      <if test="approvalAuthorityEnterprise != null" >
+        #{approvalAuthorityEnterprise,jdbcType=VARCHAR},
+      </if>
+      <if test="approvalYear != null" >
+        #{approvalYear,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.kfgs.domain.TbEnterpriseExample" resultType="java.lang.Integer" >
+    select count(*) from tb_enterprise
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tb_enterprise
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.enterpriseName != null" >
+        enterprise_name = #{record.enterpriseName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterpriseAddress != null" >
+        enterprise_address = #{record.enterpriseAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.administrativeId != null" >
+        administrative_id = #{record.administrativeId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productId != null" >
+        product_id = #{record.productId,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isdelete != null" >
+        isdelete = #{record.isdelete,jdbcType=INTEGER},
+      </if>
+      <if test="record.brand != null" >
+        brand = #{record.brand,jdbcType=VARCHAR},
+      </if>
+      <if test="record.corporateRepresentative != null" >
+        corporate_representative = #{record.corporateRepresentative,jdbcType=VARCHAR},
+      </if>
+      <if test="record.approvalAnnouncementNoEnterprise != null" >
+        approval_announcement_no_enterprise = #{record.approvalAnnouncementNoEnterprise,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uniformSocialCreditCode != null" >
+        uniform_social_credit_code = #{record.uniformSocialCreditCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.approvalAuthorityEnterprise != null" >
+        approval_authority_enterprise = #{record.approvalAuthorityEnterprise,jdbcType=VARCHAR},
+      </if>
+      <if test="record.approvalYear != null" >
+        approval_year = #{record.approvalYear,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tb_enterprise
+    set id = #{record.id,jdbcType=INTEGER},
+      enterprise_name = #{record.enterpriseName,jdbcType=VARCHAR},
+      enterprise_address = #{record.enterpriseAddress,jdbcType=VARCHAR},
+      administrative_id = #{record.administrativeId,jdbcType=VARCHAR},
+      product_id = #{record.productId,jdbcType=INTEGER},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      isdelete = #{record.isdelete,jdbcType=INTEGER},
+      brand = #{record.brand,jdbcType=VARCHAR},
+      corporate_representative = #{record.corporateRepresentative,jdbcType=VARCHAR},
+      approval_announcement_no_enterprise = #{record.approvalAnnouncementNoEnterprise,jdbcType=VARCHAR},
+      uniform_social_credit_code = #{record.uniformSocialCreditCode,jdbcType=VARCHAR},
+      approval_authority_enterprise = #{record.approvalAuthorityEnterprise,jdbcType=VARCHAR},
+      approval_year = #{record.approvalYear,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kfgs.domain.TbEnterprise" >
+    update tb_enterprise
+    <set >
+      <if test="enterpriseName != null" >
+        enterprise_name = #{enterpriseName,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseAddress != null" >
+        enterprise_address = #{enterpriseAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="administrativeId != null" >
+        administrative_id = #{administrativeId,jdbcType=VARCHAR},
+      </if>
+      <if test="productId != null" >
+        product_id = #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isdelete != null" >
+        isdelete = #{isdelete,jdbcType=INTEGER},
+      </if>
+      <if test="brand != null" >
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="corporateRepresentative != null" >
+        corporate_representative = #{corporateRepresentative,jdbcType=VARCHAR},
+      </if>
+      <if test="approvalAnnouncementNoEnterprise != null" >
+        approval_announcement_no_enterprise = #{approvalAnnouncementNoEnterprise,jdbcType=VARCHAR},
+      </if>
+      <if test="uniformSocialCreditCode != null" >
+        uniform_social_credit_code = #{uniformSocialCreditCode,jdbcType=VARCHAR},
+      </if>
+      <if test="approvalAuthorityEnterprise != null" >
+        approval_authority_enterprise = #{approvalAuthorityEnterprise,jdbcType=VARCHAR},
+      </if>
+      <if test="approvalYear != null" >
+        approval_year = #{approvalYear,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kfgs.domain.TbEnterprise" >
+    update tb_enterprise
+    set enterprise_name = #{enterpriseName,jdbcType=VARCHAR},
+      enterprise_address = #{enterpriseAddress,jdbcType=VARCHAR},
+      administrative_id = #{administrativeId,jdbcType=VARCHAR},
+      product_id = #{productId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      isdelete = #{isdelete,jdbcType=INTEGER},
+      brand = #{brand,jdbcType=VARCHAR},
+      corporate_representative = #{corporateRepresentative,jdbcType=VARCHAR},
+      approval_announcement_no_enterprise = #{approvalAnnouncementNoEnterprise,jdbcType=VARCHAR},
+      uniform_social_credit_code = #{uniformSocialCreditCode,jdbcType=VARCHAR},
+      approval_authority_enterprise = #{approvalAuthorityEnterprise,jdbcType=VARCHAR},
+      approval_year = #{approvalYear,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
