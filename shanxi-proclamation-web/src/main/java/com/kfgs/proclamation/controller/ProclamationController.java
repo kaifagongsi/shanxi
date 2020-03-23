@@ -1,16 +1,12 @@
 package com.kfgs.proclamation.controller;
 
-import com.alibaba.dubbo.common.json.JSONObject;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.kfgs.domain.TbProtectionNotice;
-import com.kfgs.domain.TbProtectionNoticeExample;
 import com.kfgs.proclamation.service.ProclamtionService;
 import org.apache.commons.codec.binary.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import com.kfgs.policypapers.service.policypapersService;
 
-import javax.management.Query;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 

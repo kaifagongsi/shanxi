@@ -5,7 +5,6 @@ import com.kfgs.mapper.TbProductMapper;
 import com.kfgs.model.response.CommonCode;
 import com.kfgs.model.response.QueryResponseResult;
 import com.kfgs.model.response.QueryResult;
-import com.kfgs.model.response.ResponseResult;
 import com.kfgs.statistics.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;

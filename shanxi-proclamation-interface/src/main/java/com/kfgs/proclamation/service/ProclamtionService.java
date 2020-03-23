@@ -1,7 +1,6 @@
 package com.kfgs.proclamation.service;
 
 import com.kfgs.domain.TbProtectionNotice;
-import com.kfgs.domain.TbProtectionNoticeExample;
 
 import java.util.List;
 import java.util.Map;

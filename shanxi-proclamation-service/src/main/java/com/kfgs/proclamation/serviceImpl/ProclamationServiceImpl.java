@@ -8,12 +8,7 @@ import com.kfgs.mapper.TbProtectionNoticeMapper;
 import com.kfgs.proclamation.service.ProclamtionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.github.pagehelper.PageHelper;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.management.Query;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -63,7 +58,7 @@ public class ProclamationServiceImpl implements ProclamtionService {
         return list;
     }
 
-
+    @Override
     public Map<String,Object> search(Map searchMap){
         //返回页面结果集
         Map<String,Object> map = new HashMap<>();

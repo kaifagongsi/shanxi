@@ -31,13 +31,21 @@ public interface TbEnterpriseMapper {
 
     int updateByPrimaryKey(TbEnterprise record);
 
-  /*  List<Map> selectEnterpriseGroupByApprovalYear();
+    List<Map> selectEnterpriseGroupByApprovalYear();
 
     List<TbEnterprise> selectByIdInList(List list);
 
-    List<String> selectDistinctEnterpriseApprovalYear();*/
+    List<String> selectDistinctEnterpriseApprovalYear();
 
 
+   /* //柱状图
+    List<Map> selectHistogramByProEnt(@Param("year")String year,@Param("classification") String classification,@Param("parentId")String parentId);
+
+    //获取面积饼图数据
+    List<Map> selectPieAreaEnt(@Param("year")String year,@Param("classification") String classification,@Param("parentId")String parentId);*/
+
+    @MapKey("id")
+    Map<Integer, Map> selectByIdAndName();
 
     //柱状图
     List<Map> selectHistogramByProEnt(@Param("year")String year, @Param("classification") String classification, @Param("parentId")String parentId);

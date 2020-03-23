@@ -340,6 +340,26 @@
   </update>
 
     <!--新增方法 -->
+
+    <select id="selectEnterpriseGroupByApprovalYear" resultType="java.util.Map">
+        select count(1),approval_year from tb_enterprise group by approval_year
+    </select>
+
+    <select id="selectByIdInList" resultType="com.kfgs.domain.TbEnterprise">
+        select id,name from tb_enterprise where id in
+        <foreach collection="list" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </select>
+
+    <select id="selectDistinctEnterpriseApprovalYear" resultType="java.lang.String">
+        select DISTINCT approval_year from tb_enterprise
+    </select>
+
+    <select id="selectByIdAndName" resultType="java.util.Map">
+         select  id,name from    tb_enterprise
+    </select>
+
     <select id="selectHistogramByProEnt" resultType="java.util.Map">
         select t1.city_id as area ,ifnull(t0.countNum,0) AS countNum from tb_administrative_area t1 LEFT JOIN  (
         SELECT

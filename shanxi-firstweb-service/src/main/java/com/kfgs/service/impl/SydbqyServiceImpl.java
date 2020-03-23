@@ -3,7 +3,10 @@ package com.kfgs.service.impl;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.kfgs.domain.TbEnterprise;
+import com.kfgs.domain.TbEnterpriseExample;
 import com.kfgs.firstweb.service.SydbqyService;
+import com.kfgs.mapper.TbEnterpriseMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.HashMap;
@@ -13,7 +16,7 @@ import java.util.Map;
 public class SydbqyServiceImpl implements SydbqyService {
 
     @Autowired
-    TbLandmarkEnterpriseMapper tbLandmarkEnterpriseMapper;
+    TbEnterpriseMapper tbEnterpriseMapper;
 
     @Override
     public String text() {
@@ -240,8 +243,8 @@ public class SydbqyServiceImpl implements SydbqyService {
         PageHelper.startPage(Integer.parseInt(searchMap.get("pageNo").toString()),20);
         //返回页面结果集
         Map<String,Object> map = new HashMap<>();
-        TbLandmarkEnterpriseExample tbLandmarkEnterpriseExample = new TbLandmarkEnterpriseExample();
-        Page<TbLandmarkEnterprise> page = (Page<TbLandmarkEnterprise>) tbLandmarkEnterpriseMapper.selectByExample(null);
+        TbEnterpriseExample tbLandmarkEnterpriseExample = new TbEnterpriseExample();
+        Page<TbEnterprise> page = (Page<TbEnterprise>) tbEnterpriseMapper.selectByExample(null);
         System.out.println(page.getPages());
         map.put("rows",page.getResult());
         map.put("totalPages", page.getPages());

@@ -41,8 +41,7 @@ public class StatisticsServiceImpl  implements StatisticsService {
     TbEnterpriseMapper tbEnterpriseMapper;
     @Autowired
     TbClassificationMapper tbClassificationMapper;
-    @Autowired
-    TbLandmarkEnterpriseMapper tbLandmarkEnterpriseMapper;
+
 
 
     /**
@@ -281,13 +280,13 @@ public class StatisticsServiceImpl  implements StatisticsService {
         }
 
         //查找企业和产品对应的id   没有用表中对应的产品名称和企业名称是担心后续再添加产品和企业关系时，没有添加
-        List<TbLandmarkEnterprise> tbLandmarkEnterprises = tbLandmarkEnterpriseMapper.selectByExample(null);
+        List<TbEnterprise> tbLandmarkEnterprises = tbEnterpriseMapper.selectByExample(null);
         List<String> productId_list = new ArrayList<>();
         List<String> enterpriseId_list = new ArrayList<>();
         Map<String,String> product_enterprise_map = new HashMap();
-        for(TbLandmarkEnterprise tbProductEnterpriseChart : tbLandmarkEnterprises){
+        for(TbEnterprise tbProductEnterpriseChart : tbLandmarkEnterprises){
             String productStr = tbProductEnterpriseChart.getProductId().toString();
-            String enterpriseStr = tbProductEnterpriseChart.getEnterpriseId().toString();
+            String enterpriseStr = tbProductEnterpriseChart.getId().toString();
             productId_list.add(productStr);
             enterpriseId_list.add(enterpriseStr);
             //map中可能有重复的
@@ -744,7 +743,7 @@ public class StatisticsServiceImpl  implements StatisticsService {
      */
     public Map getHistogramByProEnt(String approvalYear,String classification,String area){
         Map mapHistogram = new HashMap();
-        List<Map> histogramByProEntList = tbLandmarkEnterpriseMapper.selectHistogramByProEnt(approvalYear,classification,area);
+        List<Map> histogramByProEntList = tbEnterpriseMapper.selectHistogramByProEnt(approvalYear,classification,area);
         //1.获取柱状图
         //List<Map> histogramByProEntList = tbEnterpriseMapper.selectHistogramByProEnt(approvalYear, classification, area);
         System.out.println(histogramByProEntList);
@@ -839,7 +838,7 @@ public class StatisticsServiceImpl  implements StatisticsService {
         }
 
         //List<Map> mapList = tbEnterpriseMapper.selectPieAreaEnt(approvalYear, classificaion, area);
-        List<Map> mapList = tbLandmarkEnterpriseMapper.selectPieAreaEnt(approvalYear,classificaion,area);
+        List<Map> mapList = tbEnterpriseMapper.selectPieAreaEnt(approvalYear,classificaion,area);
         System.out.println(mapList);
         //[{count(1)=5, substr(t1={classification_id, 1, 2)=04}}, {count(1)=6, substr(t1={classification_id, 1, 2)=05}}, {count(1)=12, substr(t1={classification_id, 1, 2)=07}},
         // {count(1)=35, substr(t1={classification_id, 1, 2)=08}}, {count(1)=37, substr(t1={classification_id, 1, 2)=02}},
@@ -890,7 +889,7 @@ public class StatisticsServiceImpl  implements StatisticsService {
     //折线图
     public Map getLineChartByYearEnt(String area,String classification){
         Map mapLineChartDate = new HashMap();
-        List<Map> lineChartDate = tbLandmarkEnterpriseMapper.selectLineChartByYear(classification, area);
+        List<Map> lineChartDate = tbEnterpriseMapper.selectLineChartByYear(classification, area);
         List<String> lineCharListEnt = new ArrayList<>();
         List<String> lineCharCountEnt = new ArrayList<>();
         for(Map<String,String> m : lineChartDate){
