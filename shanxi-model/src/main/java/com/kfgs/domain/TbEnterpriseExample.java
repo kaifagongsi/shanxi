@@ -105,63 +105,63 @@ public class TbEnterpriseExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andIdIsNull() {
-            addCriterion("id is null");
+        public Criteria andProductIdIsNull() {
+            addCriterion("product_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andIdIsNotNull() {
-            addCriterion("id is not null");
+        public Criteria andProductIdIsNotNull() {
+            addCriterion("product_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualTo(Integer value) {
-            addCriterion("id =", value, "id");
+        public Criteria andProductIdEqualTo(Integer value) {
+            addCriterion("product_id =", value, "productId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualTo(Integer value) {
-            addCriterion("id <>", value, "id");
+        public Criteria andProductIdNotEqualTo(Integer value) {
+            addCriterion("product_id <>", value, "productId");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThan(Integer value) {
-            addCriterion("id >", value, "id");
+        public Criteria andProductIdGreaterThan(Integer value) {
+            addCriterion("product_id >", value, "productId");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("id >=", value, "id");
+        public Criteria andProductIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("product_id >=", value, "productId");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThan(Integer value) {
-            addCriterion("id <", value, "id");
+        public Criteria andProductIdLessThan(Integer value) {
+            addCriterion("product_id <", value, "productId");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(Integer value) {
-            addCriterion("id <=", value, "id");
+        public Criteria andProductIdLessThanOrEqualTo(Integer value) {
+            addCriterion("product_id <=", value, "productId");
             return (Criteria) this;
         }
 
-        public Criteria andIdIn(List<Integer> values) {
-            addCriterion("id in", values, "id");
+        public Criteria andProductIdIn(List<Integer> values) {
+            addCriterion("product_id in", values, "productId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotIn(List<Integer> values) {
-            addCriterion("id not in", values, "id");
+        public Criteria andProductIdNotIn(List<Integer> values) {
+            addCriterion("product_id not in", values, "productId");
             return (Criteria) this;
         }
 
-        public Criteria andIdBetween(Integer value1, Integer value2) {
-            addCriterion("id between", value1, value2, "id");
+        public Criteria andProductIdBetween(Integer value1, Integer value2) {
+            addCriterion("product_id between", value1, value2, "productId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("id not between", value1, value2, "id");
+        public Criteria andProductIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("product_id not between", value1, value2, "productId");
             return (Criteria) this;
         }
 
@@ -232,6 +232,136 @@ public class TbEnterpriseExample {
 
         public Criteria andEnterpriseNameNotBetween(String value1, String value2) {
             addCriterion("enterprise_name not between", value1, value2, "enterpriseName");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoEnterpriseIsNull() {
+            addCriterion("approval_announcement_no_enterprise is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoEnterpriseIsNotNull() {
+            addCriterion("approval_announcement_no_enterprise is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoEnterpriseEqualTo(String value) {
+            addCriterion("approval_announcement_no_enterprise =", value, "approvalAnnouncementNoEnterprise");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoEnterpriseNotEqualTo(String value) {
+            addCriterion("approval_announcement_no_enterprise <>", value, "approvalAnnouncementNoEnterprise");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoEnterpriseGreaterThan(String value) {
+            addCriterion("approval_announcement_no_enterprise >", value, "approvalAnnouncementNoEnterprise");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoEnterpriseGreaterThanOrEqualTo(String value) {
+            addCriterion("approval_announcement_no_enterprise >=", value, "approvalAnnouncementNoEnterprise");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoEnterpriseLessThan(String value) {
+            addCriterion("approval_announcement_no_enterprise <", value, "approvalAnnouncementNoEnterprise");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoEnterpriseLessThanOrEqualTo(String value) {
+            addCriterion("approval_announcement_no_enterprise <=", value, "approvalAnnouncementNoEnterprise");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoEnterpriseLike(String value) {
+            addCriterion("approval_announcement_no_enterprise like", value, "approvalAnnouncementNoEnterprise");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoEnterpriseNotLike(String value) {
+            addCriterion("approval_announcement_no_enterprise not like", value, "approvalAnnouncementNoEnterprise");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoEnterpriseIn(List<String> values) {
+            addCriterion("approval_announcement_no_enterprise in", values, "approvalAnnouncementNoEnterprise");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoEnterpriseNotIn(List<String> values) {
+            addCriterion("approval_announcement_no_enterprise not in", values, "approvalAnnouncementNoEnterprise");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoEnterpriseBetween(String value1, String value2) {
+            addCriterion("approval_announcement_no_enterprise between", value1, value2, "approvalAnnouncementNoEnterprise");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoEnterpriseNotBetween(String value1, String value2) {
+            addCriterion("approval_announcement_no_enterprise not between", value1, value2, "approvalAnnouncementNoEnterprise");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdIsNull() {
+            addCriterion("id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdIsNotNull() {
+            addCriterion("id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdEqualTo(Integer value) {
+            addCriterion("id =", value, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdNotEqualTo(Integer value) {
+            addCriterion("id <>", value, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdGreaterThan(Integer value) {
+            addCriterion("id >", value, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("id >=", value, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdLessThan(Integer value) {
+            addCriterion("id <", value, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdLessThanOrEqualTo(Integer value) {
+            addCriterion("id <=", value, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdIn(List<Integer> values) {
+            addCriterion("id in", values, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdNotIn(List<Integer> values) {
+            addCriterion("id not in", values, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdBetween(Integer value1, Integer value2) {
+            addCriterion("id between", value1, value2, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("id not between", value1, value2, "id");
             return (Criteria) this;
         }
 
@@ -372,66 +502,6 @@ public class TbEnterpriseExample {
 
         public Criteria andAdministrativeIdNotBetween(String value1, String value2) {
             addCriterion("administrative_id not between", value1, value2, "administrativeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductIdIsNull() {
-            addCriterion("product_id is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductIdIsNotNull() {
-            addCriterion("product_id is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductIdEqualTo(Integer value) {
-            addCriterion("product_id =", value, "productId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductIdNotEqualTo(Integer value) {
-            addCriterion("product_id <>", value, "productId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductIdGreaterThan(Integer value) {
-            addCriterion("product_id >", value, "productId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("product_id >=", value, "productId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductIdLessThan(Integer value) {
-            addCriterion("product_id <", value, "productId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductIdLessThanOrEqualTo(Integer value) {
-            addCriterion("product_id <=", value, "productId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductIdIn(List<Integer> values) {
-            addCriterion("product_id in", values, "productId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductIdNotIn(List<Integer> values) {
-            addCriterion("product_id not in", values, "productId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductIdBetween(Integer value1, Integer value2) {
-            addCriterion("product_id between", value1, value2, "productId");
-            return (Criteria) this;
-        }
-
-        public Criteria andProductIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("product_id not between", value1, value2, "productId");
             return (Criteria) this;
         }
 
@@ -692,76 +762,6 @@ public class TbEnterpriseExample {
 
         public Criteria andCorporateRepresentativeNotBetween(String value1, String value2) {
             addCriterion("corporate_representative not between", value1, value2, "corporateRepresentative");
-            return (Criteria) this;
-        }
-
-        public Criteria andApprovalAnnouncementNoEnterpriseIsNull() {
-            addCriterion("approval_announcement_no_enterprise is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andApprovalAnnouncementNoEnterpriseIsNotNull() {
-            addCriterion("approval_announcement_no_enterprise is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andApprovalAnnouncementNoEnterpriseEqualTo(String value) {
-            addCriterion("approval_announcement_no_enterprise =", value, "approvalAnnouncementNoEnterprise");
-            return (Criteria) this;
-        }
-
-        public Criteria andApprovalAnnouncementNoEnterpriseNotEqualTo(String value) {
-            addCriterion("approval_announcement_no_enterprise <>", value, "approvalAnnouncementNoEnterprise");
-            return (Criteria) this;
-        }
-
-        public Criteria andApprovalAnnouncementNoEnterpriseGreaterThan(String value) {
-            addCriterion("approval_announcement_no_enterprise >", value, "approvalAnnouncementNoEnterprise");
-            return (Criteria) this;
-        }
-
-        public Criteria andApprovalAnnouncementNoEnterpriseGreaterThanOrEqualTo(String value) {
-            addCriterion("approval_announcement_no_enterprise >=", value, "approvalAnnouncementNoEnterprise");
-            return (Criteria) this;
-        }
-
-        public Criteria andApprovalAnnouncementNoEnterpriseLessThan(String value) {
-            addCriterion("approval_announcement_no_enterprise <", value, "approvalAnnouncementNoEnterprise");
-            return (Criteria) this;
-        }
-
-        public Criteria andApprovalAnnouncementNoEnterpriseLessThanOrEqualTo(String value) {
-            addCriterion("approval_announcement_no_enterprise <=", value, "approvalAnnouncementNoEnterprise");
-            return (Criteria) this;
-        }
-
-        public Criteria andApprovalAnnouncementNoEnterpriseLike(String value) {
-            addCriterion("approval_announcement_no_enterprise like", value, "approvalAnnouncementNoEnterprise");
-            return (Criteria) this;
-        }
-
-        public Criteria andApprovalAnnouncementNoEnterpriseNotLike(String value) {
-            addCriterion("approval_announcement_no_enterprise not like", value, "approvalAnnouncementNoEnterprise");
-            return (Criteria) this;
-        }
-
-        public Criteria andApprovalAnnouncementNoEnterpriseIn(List<String> values) {
-            addCriterion("approval_announcement_no_enterprise in", values, "approvalAnnouncementNoEnterprise");
-            return (Criteria) this;
-        }
-
-        public Criteria andApprovalAnnouncementNoEnterpriseNotIn(List<String> values) {
-            addCriterion("approval_announcement_no_enterprise not in", values, "approvalAnnouncementNoEnterprise");
-            return (Criteria) this;
-        }
-
-        public Criteria andApprovalAnnouncementNoEnterpriseBetween(String value1, String value2) {
-            addCriterion("approval_announcement_no_enterprise between", value1, value2, "approvalAnnouncementNoEnterprise");
-            return (Criteria) this;
-        }
-
-        public Criteria andApprovalAnnouncementNoEnterpriseNotBetween(String value1, String value2) {
-            addCriterion("approval_announcement_no_enterprise not between", value1, value2, "approvalAnnouncementNoEnterprise");
             return (Criteria) this;
         }
 
@@ -1042,6 +1042,76 @@ public class TbEnterpriseExample {
 
         public Criteria andApprovalYearNotBetween(String value1, String value2) {
             addCriterion("approval_year not between", value1, value2, "approvalYear");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsFirstSubmissionIsNull() {
+            addCriterion("is_first_submission is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsFirstSubmissionIsNotNull() {
+            addCriterion("is_first_submission is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsFirstSubmissionEqualTo(String value) {
+            addCriterion("is_first_submission =", value, "isFirstSubmission");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsFirstSubmissionNotEqualTo(String value) {
+            addCriterion("is_first_submission <>", value, "isFirstSubmission");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsFirstSubmissionGreaterThan(String value) {
+            addCriterion("is_first_submission >", value, "isFirstSubmission");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsFirstSubmissionGreaterThanOrEqualTo(String value) {
+            addCriterion("is_first_submission >=", value, "isFirstSubmission");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsFirstSubmissionLessThan(String value) {
+            addCriterion("is_first_submission <", value, "isFirstSubmission");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsFirstSubmissionLessThanOrEqualTo(String value) {
+            addCriterion("is_first_submission <=", value, "isFirstSubmission");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsFirstSubmissionLike(String value) {
+            addCriterion("is_first_submission like", value, "isFirstSubmission");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsFirstSubmissionNotLike(String value) {
+            addCriterion("is_first_submission not like", value, "isFirstSubmission");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsFirstSubmissionIn(List<String> values) {
+            addCriterion("is_first_submission in", values, "isFirstSubmission");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsFirstSubmissionNotIn(List<String> values) {
+            addCriterion("is_first_submission not in", values, "isFirstSubmission");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsFirstSubmissionBetween(String value1, String value2) {
+            addCriterion("is_first_submission between", value1, value2, "isFirstSubmission");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsFirstSubmissionNotBetween(String value1, String value2) {
+            addCriterion("is_first_submission not between", value1, value2, "isFirstSubmission");
             return (Criteria) this;
         }
     }

@@ -1,24 +1,13 @@
 package com.kfgs.domain;
 
-import lombok.Data;
-import lombok.ToString;
-
-
-import java.io.Serializable;
 import java.util.Date;
 
-@Data
-@ToString
-public class TbEnterprise implements Serializable {
+public class TbEnterprise extends TbEnterpriseKey {
     private Integer id;
-
-    private String enterpriseName;
 
     private String enterpriseAddress;
 
     private String administrativeId;
-
-    private Integer productId;
 
     private Date createTime;
 
@@ -28,8 +17,6 @@ public class TbEnterprise implements Serializable {
 
     private String corporateRepresentative;
 
-    private String approvalAnnouncementNoEnterprise;
-
     private String approvalAnnouncementNoEnterpriseAll;
 
     private String uniformSocialCreditCode;
@@ -38,13 +25,7 @@ public class TbEnterprise implements Serializable {
 
     private String approvalYear;
 
-    public String getApprovalAnnouncementNoEnterpriseAll() {
-        return approvalAnnouncementNoEnterpriseAll;
-    }
-
-    public void setApprovalAnnouncementNoEnterpriseAll(String approvalAnnouncementNoEnterpriseAll) {
-        this.approvalAnnouncementNoEnterpriseAll = approvalAnnouncementNoEnterpriseAll;
-    }
+    private String isFirstSubmission;
 
     public Integer getId() {
         return id;
@@ -52,14 +33,6 @@ public class TbEnterprise implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getEnterpriseName() {
-        return enterpriseName;
-    }
-
-    public void setEnterpriseName(String enterpriseName) {
-        this.enterpriseName = enterpriseName == null ? null : enterpriseName.trim();
     }
 
     public String getEnterpriseAddress() {
@@ -76,14 +49,6 @@ public class TbEnterprise implements Serializable {
 
     public void setAdministrativeId(String administrativeId) {
         this.administrativeId = administrativeId == null ? null : administrativeId.trim();
-    }
-
-    public Integer getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Integer productId) {
-        this.productId = productId;
     }
 
     public Date getCreateTime() {
@@ -118,12 +83,12 @@ public class TbEnterprise implements Serializable {
         this.corporateRepresentative = corporateRepresentative == null ? null : corporateRepresentative.trim();
     }
 
-    public String getApprovalAnnouncementNoEnterprise() {
-        return approvalAnnouncementNoEnterprise;
+    public String getApprovalAnnouncementNoEnterpriseAll() {
+        return approvalAnnouncementNoEnterpriseAll;
     }
 
-    public void setApprovalAnnouncementNoEnterprise(String approvalAnnouncementNoEnterprise) {
-        this.approvalAnnouncementNoEnterprise = approvalAnnouncementNoEnterprise == null ? null : approvalAnnouncementNoEnterprise.trim();
+    public void setApprovalAnnouncementNoEnterpriseAll(String approvalAnnouncementNoEnterpriseAll) {
+        this.approvalAnnouncementNoEnterpriseAll = approvalAnnouncementNoEnterpriseAll == null ? null : approvalAnnouncementNoEnterpriseAll.trim();
     }
 
     public String getUniformSocialCreditCode() {
@@ -148,5 +113,13 @@ public class TbEnterprise implements Serializable {
 
     public void setApprovalYear(String approvalYear) {
         this.approvalYear = approvalYear == null ? null : approvalYear.trim();
+    }
+
+    public String getIsFirstSubmission() {
+        return isFirstSubmission;
+    }
+
+    public void setIsFirstSubmission(String isFirstSubmission) {
+        this.isFirstSubmission = isFirstSubmission == null ? null : isFirstSubmission.trim();
     }
 }
