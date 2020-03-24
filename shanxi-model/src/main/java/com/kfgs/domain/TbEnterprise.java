@@ -1,8 +1,14 @@
 package com.kfgs.domain;
 
+import lombok.Data;
+import lombok.ToString;
+
+
 import java.io.Serializable;
 import java.util.Date;
 
+@Data
+@ToString
 public class TbEnterprise implements Serializable {
     private Integer id;
 

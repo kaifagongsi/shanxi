@@ -5,8 +5,10 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.kfgs.domain.TbEnterprise;
 import com.kfgs.domain.TbEnterpriseExample;
+import com.kfgs.domain.ext.TbEnterpriseExt;
 import com.kfgs.firstweb.service.SydbqyService;
 import com.kfgs.mapper.TbEnterpriseMapper;
+import com.kfgs.mapper.TbProductMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.HashMap;
@@ -17,6 +19,7 @@ public class SydbqyServiceImpl implements SydbqyService {
 
     @Autowired
     TbEnterpriseMapper tbEnterpriseMapper;
+    TbProductMapper tbProductMapper;
 
     @Override
     public String text() {
@@ -244,7 +247,8 @@ public class SydbqyServiceImpl implements SydbqyService {
         //返回页面结果集
         Map<String,Object> map = new HashMap<>();
         TbEnterpriseExample tbLandmarkEnterpriseExample = new TbEnterpriseExample();
-        Page<TbEnterprise> page = (Page<TbEnterprise>) tbEnterpriseMapper.selectByExample(null);
+        //tbLandmarkEnterpriseExample.createCriteria().andProductIdEqualTo();
+        Page<TbEnterpriseExt> page = (Page<TbEnterpriseExt>) tbEnterpriseMapper.selectSydbqyList(null);
         System.out.println(page.getPages());
         map.put("rows",page.getResult());
         map.put("totalPages", page.getPages());

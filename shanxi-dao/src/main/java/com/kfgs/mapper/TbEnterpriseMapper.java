@@ -2,6 +2,7 @@ package com.kfgs.mapper;
 
 import com.kfgs.domain.TbEnterprise;
 import com.kfgs.domain.TbEnterpriseExample;
+import com.kfgs.domain.ext.TbEnterpriseExt;
 import org.apache.ibatis.annotations.MapKey;
 import org.apache.ibatis.annotations.Param;
 
@@ -55,4 +56,8 @@ public interface TbEnterpriseMapper {
 
     //折线图数据
     List<Map> selectLineChartByYearEnt(@Param("classification") String classification, @Param("parentId") String parentId);
+
+    //使用地标企业
+    List<TbEnterpriseExt> selectSydbqyList(TbEnterpriseExt tbEnterpriseExt);
+
 }
