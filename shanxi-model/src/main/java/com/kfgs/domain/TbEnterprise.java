@@ -24,11 +24,21 @@ public class TbEnterprise implements Serializable {
 
     private String approvalAnnouncementNoEnterprise;
 
+    private String approvalAnnouncementNoEnterpriseAll;
+
     private String uniformSocialCreditCode;
 
     private String approvalAuthorityEnterprise;
 
     private String approvalYear;
+
+    public String getApprovalAnnouncementNoEnterpriseAll() {
+        return approvalAnnouncementNoEnterpriseAll;
+    }
+
+    public void setApprovalAnnouncementNoEnterpriseAll(String approvalAnnouncementNoEnterpriseAll) {
+        this.approvalAnnouncementNoEnterpriseAll = approvalAnnouncementNoEnterpriseAll;
+    }
 
     public Integer getId() {
         return id;

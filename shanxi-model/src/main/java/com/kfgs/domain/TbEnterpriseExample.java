@@ -1,11 +1,10 @@
 package com.kfgs.domain;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class TbEnterpriseExample implements Serializable {
+public class TbEnterpriseExample {
     protected String orderByClause;
 
     protected boolean distinct;
@@ -763,6 +762,76 @@ public class TbEnterpriseExample implements Serializable {
 
         public Criteria andApprovalAnnouncementNoEnterpriseNotBetween(String value1, String value2) {
             addCriterion("approval_announcement_no_enterprise not between", value1, value2, "approvalAnnouncementNoEnterprise");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoEnterpriseAllIsNull() {
+            addCriterion("approval_announcement_no_enterprise_all is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoEnterpriseAllIsNotNull() {
+            addCriterion("approval_announcement_no_enterprise_all is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoEnterpriseAllEqualTo(String value) {
+            addCriterion("approval_announcement_no_enterprise_all =", value, "approvalAnnouncementNoEnterpriseAll");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoEnterpriseAllNotEqualTo(String value) {
+            addCriterion("approval_announcement_no_enterprise_all <>", value, "approvalAnnouncementNoEnterpriseAll");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoEnterpriseAllGreaterThan(String value) {
+            addCriterion("approval_announcement_no_enterprise_all >", value, "approvalAnnouncementNoEnterpriseAll");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoEnterpriseAllGreaterThanOrEqualTo(String value) {
+            addCriterion("approval_announcement_no_enterprise_all >=", value, "approvalAnnouncementNoEnterpriseAll");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoEnterpriseAllLessThan(String value) {
+            addCriterion("approval_announcement_no_enterprise_all <", value, "approvalAnnouncementNoEnterpriseAll");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoEnterpriseAllLessThanOrEqualTo(String value) {
+            addCriterion("approval_announcement_no_enterprise_all <=", value, "approvalAnnouncementNoEnterpriseAll");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoEnterpriseAllLike(String value) {
+            addCriterion("approval_announcement_no_enterprise_all like", value, "approvalAnnouncementNoEnterpriseAll");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoEnterpriseAllNotLike(String value) {
+            addCriterion("approval_announcement_no_enterprise_all not like", value, "approvalAnnouncementNoEnterpriseAll");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoEnterpriseAllIn(List<String> values) {
+            addCriterion("approval_announcement_no_enterprise_all in", values, "approvalAnnouncementNoEnterpriseAll");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoEnterpriseAllNotIn(List<String> values) {
+            addCriterion("approval_announcement_no_enterprise_all not in", values, "approvalAnnouncementNoEnterpriseAll");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoEnterpriseAllBetween(String value1, String value2) {
+            addCriterion("approval_announcement_no_enterprise_all between", value1, value2, "approvalAnnouncementNoEnterpriseAll");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoEnterpriseAllNotBetween(String value1, String value2) {
+            addCriterion("approval_announcement_no_enterprise_all not between", value1, value2, "approvalAnnouncementNoEnterpriseAll");
             return (Criteria) this;
         }
 

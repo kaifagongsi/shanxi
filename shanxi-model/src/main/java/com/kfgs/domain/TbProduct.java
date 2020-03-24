@@ -27,6 +27,8 @@ public class TbProduct implements Serializable {
 
     private String approvalAnnouncementNoProduct;
 
+    private String approvalAnnouncementNoProductAll;
+
     private String provinceName;
 
     private String cityName;
@@ -55,6 +57,7 @@ public class TbProduct implements Serializable {
         this.isdelete = tbProduct.getIsdelete();
         this.approvalAuthorityProduct = tbProduct.getApprovalAuthorityProduct();
         this.approvalAnnouncementNoProduct = tbProduct.getApprovalAnnouncementNoProduct();
+        this.approvalAnnouncementNoProductAll = tbProduct.getApprovalAnnouncementNoProductAll();
         this.provinceName = tbProduct.getProvinceName();
         this.cityName = tbProduct.getCityName();
 

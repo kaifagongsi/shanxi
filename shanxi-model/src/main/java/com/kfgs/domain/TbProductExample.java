@@ -1,11 +1,10 @@
 package com.kfgs.domain;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class TbProductExample implements Serializable {
+public class TbProductExample {
     protected String orderByClause;
 
     protected boolean distinct;
@@ -703,6 +702,76 @@ public class TbProductExample implements Serializable {
 
         public Criteria andApprovalAnnouncementNoProductNotBetween(String value1, String value2) {
             addCriterion("approval_announcement_no_product not between", value1, value2, "approvalAnnouncementNoProduct");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoProductAllIsNull() {
+            addCriterion("approval_announcement_no_product_all is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoProductAllIsNotNull() {
+            addCriterion("approval_announcement_no_product_all is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoProductAllEqualTo(String value) {
+            addCriterion("approval_announcement_no_product_all =", value, "approvalAnnouncementNoProductAll");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoProductAllNotEqualTo(String value) {
+            addCriterion("approval_announcement_no_product_all <>", value, "approvalAnnouncementNoProductAll");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoProductAllGreaterThan(String value) {
+            addCriterion("approval_announcement_no_product_all >", value, "approvalAnnouncementNoProductAll");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoProductAllGreaterThanOrEqualTo(String value) {
+            addCriterion("approval_announcement_no_product_all >=", value, "approvalAnnouncementNoProductAll");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoProductAllLessThan(String value) {
+            addCriterion("approval_announcement_no_product_all <", value, "approvalAnnouncementNoProductAll");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoProductAllLessThanOrEqualTo(String value) {
+            addCriterion("approval_announcement_no_product_all <=", value, "approvalAnnouncementNoProductAll");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoProductAllLike(String value) {
+            addCriterion("approval_announcement_no_product_all like", value, "approvalAnnouncementNoProductAll");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoProductAllNotLike(String value) {
+            addCriterion("approval_announcement_no_product_all not like", value, "approvalAnnouncementNoProductAll");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoProductAllIn(List<String> values) {
+            addCriterion("approval_announcement_no_product_all in", values, "approvalAnnouncementNoProductAll");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoProductAllNotIn(List<String> values) {
+            addCriterion("approval_announcement_no_product_all not in", values, "approvalAnnouncementNoProductAll");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoProductAllBetween(String value1, String value2) {
+            addCriterion("approval_announcement_no_product_all between", value1, value2, "approvalAnnouncementNoProductAll");
+            return (Criteria) this;
+        }
+
+        public Criteria andApprovalAnnouncementNoProductAllNotBetween(String value1, String value2) {
+            addCriterion("approval_announcement_no_product_all not between", value1, value2, "approvalAnnouncementNoProductAll");
             return (Criteria) this;
         }
 
