@@ -650,4 +650,32 @@
     <select id="selectByIdAndName" resultType="java.util.Map">
         select  id,name from   tb_product
     </select>
+
+    <select id="getList"  resultType="com.kfgs.domain.ext.TbProductExt"  parameterType="com.kfgs.domain.TbProductExample" >
+        SELECT
+        t0.id as id,t0.approval_announcement_no_product as approvalAnnouncementNoProduct,t0.protection_scope as protectionScope,
+        t0.name as name,t0.approval_year as approvalYear,t0.approval_authority_product as approvalAuthorityProduct,
+        CONCAT(province_name,city_name) AS administrativeAreaName,
+        (
+        SELECT
+        t2. NAME
+        FROM
+        tb_classification t2
+        WHERE
+        t2.parentId = '0000'
+        AND SUBSTR(
+        t0.classificationId
+        FROM
+        1 FOR 2
+        ) = substr(t2.classificationId, 1, 2)
+        ) AS classificationName
+        FROM
+        tb_product t0
+        <if test="_parameter != null" >
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null" >
+            order by ${orderByClause}
+        </if>
+    </select>
 </mapper>

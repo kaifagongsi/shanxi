@@ -55,4 +55,7 @@ public interface TbProductMapper {
 
     @MapKey("id")
     Map<Integer, Map> selectByIdAndName();
+
+    //产品列表
+    List<TbProductExt> getList(TbProductExample example);
 }

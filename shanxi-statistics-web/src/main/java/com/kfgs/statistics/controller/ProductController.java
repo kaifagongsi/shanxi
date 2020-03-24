@@ -3,9 +3,9 @@ package com.kfgs.statistics.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.kfgs.model.response.QueryResponseResult;
 import com.kfgs.statistics.service.ProductService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 /**
  * Date: 2019-12-04-19-39
@@ -26,4 +26,11 @@ public class ProductController {
         System.out.println("11111111111111111111111");
         return  productService.selectByDistinctApprovalYear();
     }
+
+
+    @PostMapping("/getList")
+    public Map<String,Object> getList(@RequestBody Map searchMap){
+        return productService.getList(searchMap);
+    }
+
 }
