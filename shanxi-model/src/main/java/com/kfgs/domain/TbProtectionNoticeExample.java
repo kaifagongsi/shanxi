@@ -1,12 +1,11 @@
 package com.kfgs.domain;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-public class TbProtectionNoticeExample implements Serializable {
+public class TbProtectionNoticeExample {
     protected String orderByClause;
 
     protected boolean distinct;
@@ -263,6 +262,76 @@ public class TbProtectionNoticeExample implements Serializable {
             return (Criteria) this;
         }
 
+        public Criteria andTitleSimpleIsNull() {
+            addCriterion("title_simple is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleSimpleIsNotNull() {
+            addCriterion("title_simple is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleSimpleEqualTo(String value) {
+            addCriterion("title_simple =", value, "titleSimple");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleSimpleNotEqualTo(String value) {
+            addCriterion("title_simple <>", value, "titleSimple");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleSimpleGreaterThan(String value) {
+            addCriterion("title_simple >", value, "titleSimple");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleSimpleGreaterThanOrEqualTo(String value) {
+            addCriterion("title_simple >=", value, "titleSimple");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleSimpleLessThan(String value) {
+            addCriterion("title_simple <", value, "titleSimple");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleSimpleLessThanOrEqualTo(String value) {
+            addCriterion("title_simple <=", value, "titleSimple");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleSimpleLike(String value) {
+            addCriterion("title_simple like", value, "titleSimple");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleSimpleNotLike(String value) {
+            addCriterion("title_simple not like", value, "titleSimple");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleSimpleIn(List<String> values) {
+            addCriterion("title_simple in", values, "titleSimple");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleSimpleNotIn(List<String> values) {
+            addCriterion("title_simple not in", values, "titleSimple");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleSimpleBetween(String value1, String value2) {
+            addCriterion("title_simple between", value1, value2, "titleSimple");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleSimpleNotBetween(String value1, String value2) {
+            addCriterion("title_simple not between", value1, value2, "titleSimple");
+            return (Criteria) this;
+        }
+
         public Criteria andCreateTimeIsNull() {
             addCriterion("create_time is null");
             return (Criteria) this;
@@ -453,63 +522,73 @@ public class TbProtectionNoticeExample implements Serializable {
             return (Criteria) this;
         }
 
-        public Criteria andTimeIsNull() {
-            addCriterion("time is null");
+        public Criteria andNoticeTimeIsNull() {
+            addCriterion("notice_time is null");
             return (Criteria) this;
         }
 
-        public Criteria andTimeIsNotNull() {
-            addCriterion("time is not null");
+        public Criteria andNoticeTimeIsNotNull() {
+            addCriterion("notice_time is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTimeEqualTo(Date value) {
-            addCriterion("time =", value, "time");
+        public Criteria andNoticeTimeEqualTo(String value) {
+            addCriterion("notice_time =", value, "noticeTime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeNotEqualTo(Date value) {
-            addCriterion("time <>", value, "time");
+        public Criteria andNoticeTimeNotEqualTo(String value) {
+            addCriterion("notice_time <>", value, "noticeTime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeGreaterThan(Date value) {
-            addCriterion("time >", value, "time");
+        public Criteria andNoticeTimeGreaterThan(String value) {
+            addCriterion("notice_time >", value, "noticeTime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("time >=", value, "time");
+        public Criteria andNoticeTimeGreaterThanOrEqualTo(String value) {
+            addCriterion("notice_time >=", value, "noticeTime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeLessThan(Date value) {
-            addCriterion("time <", value, "time");
+        public Criteria andNoticeTimeLessThan(String value) {
+            addCriterion("notice_time <", value, "noticeTime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeLessThanOrEqualTo(Date value) {
-            addCriterion("time <=", value, "time");
+        public Criteria andNoticeTimeLessThanOrEqualTo(String value) {
+            addCriterion("notice_time <=", value, "noticeTime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeIn(List<Date> values) {
-            addCriterion("time in", values, "time");
+        public Criteria andNoticeTimeLike(String value) {
+            addCriterion("notice_time like", value, "noticeTime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeNotIn(List<Date> values) {
-            addCriterion("time not in", values, "time");
+        public Criteria andNoticeTimeNotLike(String value) {
+            addCriterion("notice_time not like", value, "noticeTime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeBetween(Date value1, Date value2) {
-            addCriterion("time between", value1, value2, "time");
+        public Criteria andNoticeTimeIn(List<String> values) {
+            addCriterion("notice_time in", values, "noticeTime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeNotBetween(Date value1, Date value2) {
-            addCriterion("time not between", value1, value2, "time");
+        public Criteria andNoticeTimeNotIn(List<String> values) {
+            addCriterion("notice_time not in", values, "noticeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andNoticeTimeBetween(String value1, String value2) {
+            addCriterion("notice_time between", value1, value2, "noticeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andNoticeTimeNotBetween(String value1, String value2) {
+            addCriterion("notice_time not between", value1, value2, "noticeTime");
             return (Criteria) this;
         }
     }

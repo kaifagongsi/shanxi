@@ -1,12 +1,13 @@
 package com.kfgs.domain;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class TbProtectionNotice implements Serializable {
+public class TbProtectionNotice {
     private Integer id;
 
     private String title;
+
+    private String titleSimple;
 
     private Date createTime;
 
@@ -14,7 +15,7 @@ public class TbProtectionNotice implements Serializable {
 
     private String typeval;
 
-    private Date time;
+    private String noticeTime;
 
     private byte[] content;
 
@@ -32,6 +33,14 @@ public class TbProtectionNotice implements Serializable {
 
     public void setTitle(String title) {
         this.title = title == null ? null : title.trim();
+    }
+
+    public String getTitleSimple() {
+        return titleSimple;
+    }
+
+    public void setTitleSimple(String titleSimple) {
+        this.titleSimple = titleSimple == null ? null : titleSimple.trim();
     }
 
     public Date getCreateTime() {
@@ -58,12 +67,12 @@ public class TbProtectionNotice implements Serializable {
         this.typeval = typeval == null ? null : typeval.trim();
     }
 
-    public Date getTime() {
-        return time;
+    public String getNoticeTime() {
+        return noticeTime;
     }
 
-    public void setTime(Date time) {
-        this.time = time;
+    public void setNoticeTime(String noticeTime) {
+        this.noticeTime = noticeTime == null ? null : noticeTime.trim();
     }
 
     public byte[] getContent() {
