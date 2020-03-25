@@ -2,6 +2,7 @@ package com.kfgs.mapper;
 
 import com.kfgs.domain.TbProductProtectionNotice;
 import com.kfgs.domain.TbProductProtectionNoticeExample;
+import com.kfgs.domain.TbProtectionNotice;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -28,4 +29,6 @@ public interface TbProductProtectionNoticeMapper {
     int updateByPrimaryKeySelective(TbProductProtectionNotice record);
 
     int updateByPrimaryKey(TbProductProtectionNotice record);
+
+    List<TbProtectionNotice> selectGongGaoTitleByProducrId(@Param("productId") String productId);
 }

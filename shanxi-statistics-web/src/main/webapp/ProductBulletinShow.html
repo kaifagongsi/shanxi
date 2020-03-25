@@ -26,10 +26,15 @@
     </script>
     <script type="text/javascript" src="plugins/bootstrap/js/bootstrap.js"></script>
 
-    <!--<script src="plugins/adminLTE/js/app.min.js"></script>-->
-    <!--<link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap-theme.css.map"/>-->
+
+    <!--  导入angularjs  -->
+    <script type="text/javascript" src="plugins/angularjs/angular.min.js"></script>
+    <script type="text/javascript" src="js/base.js"></script>
+    <script type="text/javascript" src="js/service/productBulletinServiceShow.js"></script>
+    <script type="text/javascript" src="js/controller/productBulletinShowChontroller.js"></script>
+
 </head>
-<body style="height: 100%">
+<body style="height: 100%" ng-app="shanxi-tongji" ng-controller="productBulletinShowChontroller" ng-init="getProduceInfo()">
 <div id="mbg" class="mbg" style="height: 100%"></div>
 <div class="main" style="width: 100%;height:100%;/*min-height: 1450px;*/min-width: 1200px;">
     <!--top-->
@@ -64,153 +69,133 @@
 
     <div class="bztitle"></div>
     <!-- Main content -->
-    <section class="content">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="box box-info">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">西凤酒</h3>
-                    </div>
-                    <!-- /.box-header -->
-                    <!-- form start -->
-                    <form class="form-horizontal">
-                        <div class="box-body">
-                            <div class="form-group">
 
-                                <label  class="col-sm-2 control-label">产品名称</label>
-                                <div class="col-sm-4">
-                                    <p class="form-control-static">西凤酒</p>
-                                </div>
-                                <label  class="col-sm-2 control-label">产品类别</label>
-                                <div class="col-sm-4">
-                                    <p class="form-control-static">酒水类</p>
-                                </div>
-
-                            </div>
-                            <div class="form-group">
-                                <label  class="col-sm-2 control-label">区域</label>
-                                <div class="col-sm-4">
-                                    <p class="form-control-static">陕西省宝鸡市</p>
-                                </div>
-                                <label  class="col-sm-2 control-label">申请机构</label>
-                                <div class="col-sm-4">
-                                    <p class="form-control-static"></p>
-                                </div>
-
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">初审机构</label>
-                                <div class="col-sm-4">
-                                    <p class="form-control-static">陕西省政府为初审机构</p>
-                                </div>
-                                <label  class="col-sm-2 control-label">批准机构</label>
-                                <div class="col-sm-4">
-                                    <p class="form-control-static">陕西省政府</p>
-                                </div>
-
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">受理公告</label>
-                                <div class="col-sm-4">
-                                    <p class="form-control-static">国家质量监督检验检疫总局公告 2002年第93号（2002-09-17）</p>
-                                </div>
-                                <label class="col-sm-2 control-label">受理年份</label>
-                                <div class="col-sm-4">
-                                    <p class="form-control-static">2002</p>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">批准公告</label>
-                                <div class="col-sm-4">
-                                    <p class="form-control-static">2003年第86号</p>
-                                </div>
-                                <label class="col-sm-2 control-label">批准年份</label>
-                                <div class="col-sm-4">
-                                    <p class="form-control-static">2003年</p>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">保护范围</label>
-                                <div class="col-sm-4">
-                                    <p class="form-control-static">东径107°16′ 36″ --东径107°19′ 58″ ，北纬34°32′ 14″ --北纬34°33′ 43″ </p>
-                                </div>
-                                <label class="col-sm-2 control-label">界定保护范围文件</label>
-                                <div class="col-sm-4">
-                                    <p class="form-control-static">陕西省凤翔县人民政府《关于西凤酒原产地域保护的函》（凤政字〖2003〗6号）</p>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">技术规范</label>
-                                <div class="col-sm-4">
-                                    <p class="form-control-static">GB/T19508-2007《地理标志产品 西凤酒》</p>
-                                </div>
-                                <label class="col-sm-2 control-label">专用标志使用</label>
-                                <div class="col-sm-4">
-                                    <p class="form-control-static"></p>
-                                </div>
-                            </div>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box box-info">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">{{productInfo.name}}</h3>
                         </div>
-                    </form>
-                </div>
+                        <!-- /.box-header -->
+                        <!-- form start -->
+                        <form class="form-horizontal">
+                            <div class="box-body">
+                                <div class="form-group">
 
-            </div>
+                                    <label  class="col-sm-2 control-label">产品名称</label>
+                                    <div class="col-sm-4">
+                                        <p class="form-control-static">{{productInfo.name}}</p>
+                                    </div>
+                                    <label  class="col-sm-2 control-label">产品类别</label>
+                                    <div class="col-sm-4">
+                                        <p class="form-control-static">{{productInfo.classificationName}}</p>
+                                    </div>
 
-            <div class="col-md-12">
-                <div class="box">
-                    <div class="box-header">
-                        <h3 class="box-title">地理标志核准企业</h3>
+                                </div>
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">区域</label>
+                                    <div class="col-sm-4">
+                                        <p class="form-control-static">{{productInfo.area}}</p>
+                                    </div>
+                                    <label  class="col-sm-2 control-label">申请机构</label>
+                                    <div class="col-sm-4">
+                                        <p class="form-control-static">{{productInfo.applicantOrganization}}</p>
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">初审机构</label>
+                                    <div class="col-sm-4">
+                                        <p class="form-control-static">{{productInfo.preliminaryExaminationBody}}</p>
+                                    </div>
+                                    <label  class="col-sm-2 control-label">批准机构</label>
+                                    <div class="col-sm-4">
+                                        <p class="form-control-static">{{productInfo.approvalAuthorityProduct}}</p>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">受理公告</label>
+                                    <div class="col-sm-4">
+                                        <p class="form-control-static">{{productInfo.protectionNoticeTitle}}</p>
+                                    </div>
+                                    <label class="col-sm-2 control-label">受理年份</label>
+                                    <div class="col-sm-4">
+                                        <p class="form-control-static">{{productInfo.noticeTime}}</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">批准公告</label>
+                                    <div class="col-sm-4">
+                                        <p class="form-control-static">{{productInfo.approvalAnnouncementNoProduct}}</p>
+                                    </div>
+                                    <label class="col-sm-2 control-label">批准年份</label>
+                                    <div class="col-sm-4">
+                                        <p class="form-control-static">{{productInfo.approvalYear}}</p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">保护范围</label>
+                                    <div class="col-sm-4">
+                                        <p class="form-control-static">{{productInfo.protectionScope}}</p>
+                                    </div>
+                                    <label class="col-sm-2 control-label">界定保护范围文件</label>
+                                    <div class="col-sm-4">
+                                        <p class="form-control-static">{{productInfo.documentDefiningTheScopeOfProtection}}</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">技术规范</label>
+                                    <div class="col-sm-4">
+                                        <p class="form-control-static">{{productInfo.technicalSpecifications}}</p>
+                                    </div>
+                                    <label class="col-sm-2 control-label">专用标志使用</label>
+                                    <div class="col-sm-4">
+                                        <p class="form-control-static">{{productInfo.useOfSpecialSigns}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <!-- /.box-header -->
-                    <div class="box-body table-responsive no-padding">
-                        <table class="table table-hover">
-                            <tr>
-                                <th>序号</th>
-                                <th>企业名称</th>
-                                <th>统一社会信用代码</th>
-                                <th>核准公告（全称）</th>
-                                <th>公告日期</th>
-                                <th>法人代表</th>
-                                <th>申请人地址</th>
-                            </tr>
-                            <tr>
-                                <td>183</td>
-                                <td>John Doe</td>
-                                <td>11-7-2014</td>
-                                <td><span class="label label-success">Approved</span></td>
-                                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                            </tr>
-                            <tr>
-                                <td>219</td>
-                                <td>Alexander Pierce</td>
-                                <td>11-7-2014</td>
-                                <td><span class="label label-warning">Pending</span></td>
-                                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                            </tr>
-                            <tr>
-                                <td>657</td>
-                                <td>Bob Doe</td>
-                                <td>11-7-2014</td>
-                                <td><span class="label label-primary">Approved</span></td>
-                                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                            </tr>
-                            <tr>
-                                <td>175</td>
-                                <td>Mike Doe</td>
-                                <td>11-7-2014</td>
-                                <td><span class="label label-danger">Denied</span></td>
-                                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <!-- /.box-body -->
+
                 </div>
-                <!-- /.box -->
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">地理标志核准企业</h3>
+                        </div>
+                        <!-- /.box-header -->
+
+                        <div class="box-body table-responsive ">
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>企业名称</th>
+                                    <th>统一社会信用代码</th>
+                                    <th>核准公告（全称）</th>
+                                    <th>公告日期</th>
+                                    <th>法人代表</th>
+                                    <th>申请人地址</th>
+                                </tr>
+                                <tr ng-repeat=" item in list">
+                                    <td>{{item.enterpriseName}}</td>
+                                    <td>{{item.uniformSocialCreditCode}}</td>
+                                    <td>{{item.approvalAnnouncementNoEnterpriseAll}}</td>
+                                    <td>{{item.approvalYear}}</td>
+                                    <td>{{item.corporateRepresentative}}</td>
+                                    <td>{{item.enterpriseAddress}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
 
     <!--footer-->

@@ -6,6 +6,26 @@ app.filter('trustHtml',['$sce',function($sce){
     }
 }]);
 
+app.filter('textLengthSet', function () {
+    return function(value, wordwise, max, tail) {
+        if (!value) return '';
+
+        max = parseInt(max, 10);
+        if (!max) return value;
+        if (value.length <= max) return value;
+
+        value = value.substr(0, max);
+        if (wordwise) {
+            var lastspace = value.lastIndexOf(' ');
+            if (lastspace != -1) {
+                value = value.substr(0, lastspace);
+            }
+        }
+
+        return value + (tail || ' …');//'...'可以换成其它文字
+    };
+});
+
 app.directive('loading', function(){
     return {
         restrict: 'E',

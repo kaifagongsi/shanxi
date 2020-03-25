@@ -33,4 +33,9 @@ public class ProductController {
         return productService.getList(searchMap);
     }
 
+    @GetMapping("getProductInfo")
+    public Map<String,Object> getProductInfo(String productId){
+        return productService.getProductInfo(productId);
+    }
+
 }

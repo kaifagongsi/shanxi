@@ -60,4 +60,5 @@ public interface TbEnterpriseMapper {
     //使用地标企业
     List<TbEnterpriseExt> selectSydbqyList(TbEnterpriseExt tbEnterpriseExt);
 
+    List<TbEnterpriseExt> selectEnterpriseByProductId(String productId);
 }

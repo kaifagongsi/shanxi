@@ -1,8 +1,9 @@
 package com.kfgs.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class TbEnterprise extends TbEnterpriseKey {
+public class TbEnterprise extends TbEnterpriseKey implements Serializable {
     private Integer id;
 
     private String enterpriseAddress;

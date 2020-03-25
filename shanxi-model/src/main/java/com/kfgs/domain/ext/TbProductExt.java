@@ -18,13 +18,18 @@ import java.io.Serializable;
 public class TbProductExt extends TbProduct implements Serializable {
     private String  administrativeAreaName;
     private String  classificationName;
-
+    private String  area;
+    private String  protectionNoticeTitle;
+    private String  noticeTime;
 
     public TbProductExt(){}
 
-    public TbProductExt(String administrativeAreaName, String classificationName,TbProduct tbProduct) {
+    public TbProductExt(String noticeTime,String protectionNoticeTitle,String area,String administrativeAreaName, String classificationName,TbProduct tbProduct) {
         super(tbProduct);
         this.administrativeAreaName = administrativeAreaName;
         this.classificationName = classificationName;
+        this.area = area;
+        this.protectionNoticeTitle = protectionNoticeTitle;
+        this.noticeTime = noticeTime;
     }
 }

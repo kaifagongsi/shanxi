@@ -193,4 +193,34 @@
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+
+    <!-- 自己 添加的-->
+    <select id="selectGongGaoTitleByProducrId" resultType="com.kfgs.domain.TbProtectionNotice">
+        SELECT
+            pn.title,
+            pn.notice_time as noticeTime
+        FROM
+            (
+                SELECT
+                    id,
+                    title,
+                    notice_time
+                FROM
+                    tb_protection_notice
+                WHERE
+
+                 typeVal = '受理公告'
+            ) pn,
+            (
+                SELECT
+                    protection_notice_id
+                FROM
+                    tb_product_protection_notice
+                WHERE
+                    product_id = '87'
+            ) ppn
+        WHERE
+            ppn.protection_notice_id = pn.id
+    </select>
 </mapper>

@@ -527,4 +527,18 @@
         ORDER BY
         approval_year
     </select>
+
+    <select id="selectEnterpriseByProductId" resultType="com.kfgs.domain.TbEnterprise">
+        SELECT
+            enterprise_name as enterpriseName,
+            uniform_social_credit_code as uniformSocialCreditCode,
+            approval_announcement_no_enterprise_all as approvalAnnouncementNoEnterpriseAll,
+            approval_year as approvalYear,
+            corporate_representative as corporateRepresentative,
+            enterprise_address as enterpriseAddress
+        FROM
+            tb_enterprise
+        where
+          product_id = #{productId}
+    </select>
 </mapper>

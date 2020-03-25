@@ -100,7 +100,7 @@
                         <!--<td class="th" width="100px;">{{item.address}}</td>
                         <td class="th" width="100px;">{{item.trademark}}</td>
                         <td class="th" width="60px;">{{item.batch}}</td>-->
-                        <td class="th" width="180px;">{{item.protectionScope}}</td>
+                        <td class="th" width="180px;">{{item.protectionScope| textLengthSet:true:20:'...'}}</td>
                         <td class="th" width="120px">{{item.administrativeAreaName}}</td>
                         <td class="th" width="180px;">{{item.approvalAnnouncementNoProduct}}</td>
                         <td class="th" width="100px;">{{item.approvalYear}}</td>

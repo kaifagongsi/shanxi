@@ -12,4 +12,6 @@ public interface ProductService {
     public QueryResponseResult selectByDistinctApprovalYear();
 
     public Map<String,Object> getList(Map searchMap);
+
+    public Map<String,Object> getProductInfo(String productId);
 }
