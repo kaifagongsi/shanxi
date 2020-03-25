@@ -1,13 +1,4 @@
-//tab切换后加载指定的图标
-$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-    if(e.target.innerHTML=="我要投诉"){
-        $("#tab-allState").addClass("current");
-        $("#tab-product").removeClass("current");
-    }else if(e.target.innerHTML=="案件处理情况"){
-        $("#tab-product").addClass("current");
-        $("#tab-allState").removeClass("current");
-    }
-});
+
 
 //统计控制层
 app.controller('complaintRightController',function ($scope,$location,$window,complaintRightService) {
@@ -91,6 +82,15 @@ app.controller('complaintRightController',function ($scope,$location,$window,com
         }
     };
 
+    //tab切换后加载指定的图标
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        if(e.target.innerHTML=="我要投诉"){
+            // $("#tab-allState").addClass("current");
+            // $("#tab-product").removeClass("current");
+        }else if(e.target.innerHTML=="案件处理情况"){
+            $scope.load();
+        }
+    });
 
 
 });

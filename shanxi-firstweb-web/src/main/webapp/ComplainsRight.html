@@ -38,7 +38,7 @@
     <!--<script src="plugins/adminLTE/js/app.min.js"></script>-->
     <!--<link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap-theme.css.map"/>-->
 </head>
-<body class="hold-transition skin-purple sidebar-mini" style="width: 100%;height: 100%; " ng-app="shanxi-firstweb" ng-controller="complaintRightController" ng-init="getList();" >
+<body class="hold-transition skin-purple sidebar-mini" style="width: 100%;height: 100%; " ng-app="shanxi-firstweb" ng-controller="complaintRightController" ng-init="load();" >
 <div id="mbg" class="mbg" style="height: 100%"></div>
 <div class="main" style="width: 100%;height:100%;/*min-height: 1450px;*/min-width: 1200px;">
     <!--top-->
@@ -110,18 +110,18 @@
                                             <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
                                                 <thead>
                                                 <tr>
-                                                    <th width="100px" class="sorting_asc">投诉对象</th>
-                                                    <th width="100px"  class="text-center sorting">投诉时间</th>
-                                                    <th width="100px"  class="sorting_asc sorting_asc_disabled">涉诉金额</th>
-                                                    <th class="sorting_desc">投诉详情</th>
-                                                    <th class="sorting_desc sorting_desc_disabled">处理情况</th>
+                                                    <th width="100px" class="text-center sorting_asc">投诉对象</th>
+                                                    <th width="100px" class="text-center sorting">投诉时间</th>
+                                                    <th width="100px" class="text-center sorting">涉诉金额</th>
+                                                    <th class="text-center sorting_desc">投诉详情</th>
+                                                    <th class="text-center sorting_desc_disabled">处理情况</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
                                                 <tr ng-repeat="x in resultMap.rows">
-                                                    <td>{{x.objectOfComplaint}}</td>
-                                                    <td>{{x.createTime}}</td>
-                                                    <td>{{x.amountOfComplaint}}</td>
+                                                    <td align="center" >{{x.objectOfComplaint}}</td>
+                                                    <td align="center" >{{x.createTime.substring(0,10)}}</td>
+                                                    <td align="center" >{{x.amountOfComplaint}}</td>
                                                     <td>{{x.detailsOfComplaints}}</td>
                                                     <td>{{x.handlingSituation}}</td>
                                                 </tr>
