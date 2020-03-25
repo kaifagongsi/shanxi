@@ -2,7 +2,7 @@
 <html style="height: 100%">
 <head>
     <meta charset="utf-8">
-    <title>中国?陕西地理标志保护产品</title>
+    <title>中国·陕西地理标志保护产品</title>
     <meta content="陕西地理标志保护产品,陕西地理标志保护产品,产品,地理,保护,标志,地理标志,地理标志保护,地理标志保护产品,茶,酒,果蔬,养殖,中药材,经济作物,地方特种,地方特色食品,食品,工艺品" name="keywords" />
     <meta content="" name="description" />
 
@@ -51,16 +51,16 @@
             <div class="logo"></div>
             <div class="nav" >
                 <ul>
-                    <li ><a href="http://172.17.1.51:9101/page/index.do" target="_self">首 页</a></li>
-                    <li><a href="http://172.17.1.51:9101/page/dbcpzs.do" target="_self" title="地标产品展示">地标产品展示</a></li>
-                    <li><a href="http://172.17.1.51:9101/page/sydbqy.do" target="_self" title="使用地标企业">使用地标企业</a></li>
-                    <li><a href="http://172.17.1.249:9102/ProductBulletin.html" target="_self" title="产品公告">产品公告</a></li>
-                    <li ><a href="http://172.17.1.249:9102/Statistics.html" target="_self" title="地标产品统计">地标产品统计</a></li>
-                    <li><a href="http://172.17.1.58:9103/index.html" target="_self" title="地标保护公告">地标保护公告</a></li>
-                    <li><a href="http://172.17.1.58:9103/guideBook.html" target="_self" title="地标申报指南">地标申报指南</a></li>
-                    <li><a href="http://172.17.1.58:9104/policyPapers.html" target="_self" title="政策文件">政策文件</a></li>
-                    <li class="current"><a href="http://localhost:9101/test.html" target="_self" title="投诉维权">投诉维权</a></li>
-                    <li><a href="http://172.17.1.58:9103/productIntroduction.html" target="_self" title="地标产品介绍">地标产品介绍</a></li>
+                    <li style="width: 70px"><a href="http://172.17.1.63:9101/page/index.do" target="_self">首 页</a></li>
+                    <li style="width: 100px"><a href="http://172.17.1.63:9101/page/dbcpzs.do" target="_self" title="地标产品展示">地标产品展示</a></li>
+                    <li style="width: 100px"><a href="http://172.17.1.63:9101/page/sydbqy.do" target="_self" title="使用地标企业">使用地标企业</a></li>
+                    <li style="width: 100px"><a href="http://172.17.1.249:9102/ProductBulletin.html" target="_self" title="产品公告">地标产品公告</a></li>
+                    <li style="width: 100px"><a href="http://172.17.1.249:9102/Statistics.html" target="_self" title="地标产品统计">地标产品统计</a></li>
+                    <li style="width: 100px"><a href="http://172.17.1.58:9103/index.html" target="_self" title="地标保护公告">地标保护公告</a></li>
+                    <li style="width: 100px"><a href="http://172.17.1.58:9103/guideBook.html" target="_self" title="地标申报指南">地标申报指南</a></li>
+                    <li style="width: 100px"><a href="http://172.17.1.58:9104/policyPapers.html" target="_self" title="政策文件">政策文件</a></li>
+                    <li style="width: 100px" class="current"><a href="http://localhost:9101/ComplainsRight.html" target="_self" title="投诉维权">投诉维权</a></li>
+                    <li style="width: 100px"><a href="http://172.17.1.63:9103/productIntroduction.html" target="_self" title="地标产品介绍">地标产品介绍</a></li>
                 </ul>
                 <!--  <label class="showSearch" title="搜索"></label>-->
             </div>
@@ -93,6 +93,29 @@
 
                                 <hr style="filter: alpha(opacity=100,finishopacity=0,style=2)" width="99%"  size="2" />
 
+                                <!-- 表单  -->
+                                <form role="form">
+                                    <div class="form-group">
+                                        <label for="object">投诉对象</label>
+                                        <input type="text" class="form-control" id="object"
+                                               placeholder="请输入投诉对象">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="detail">投诉详情</label>
+                                        <textarea class="form-control" rows="5" id="detail" name="detail" placeholder="请输入投诉详情"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="money">涉诉金额</label>
+                                        <input type="text" class="form-control" id="money"
+                                               placeholder="请输入涉诉金额">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="file">文件输入</label>
+                                        <input type="file" id="file" class="file">
+                                    </div>
+                                    <button type="submit" class="btn btn-default" ng-click="upload()">提交</button>
+                                </form>
                             </div>
                             <!-- 地标产品统计 -->
                             <div class="tab-pane  active"  style="width: 100%; " id="tab-product">
