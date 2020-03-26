@@ -18,6 +18,10 @@ public class TbComplaintsAboutRightsProtection implements Serializable {
 
     private String handlingSituation;
 
+    private String complainant;
+
+    private String contact;
+
     private Date createTime;
 
     public Integer getId() {
@@ -74,6 +78,22 @@ public class TbComplaintsAboutRightsProtection implements Serializable {
 
     public void setHandlingSituation(String handlingSituation) {
         this.handlingSituation = handlingSituation == null ? null : handlingSituation.trim();
+    }
+
+    public String getComplainant() {
+        return complainant;
+    }
+
+    public void setComplainant(String complainant) {
+        this.complainant = complainant == null ? null : complainant.trim();
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact == null ? null : contact.trim();
     }
 
     public Date getCreateTime() {

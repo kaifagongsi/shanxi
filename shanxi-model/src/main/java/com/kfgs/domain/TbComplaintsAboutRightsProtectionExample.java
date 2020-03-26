@@ -1,11 +1,10 @@
 package com.kfgs.domain;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class TbComplaintsAboutRightsProtectionExample  implements Serializable {
+public class TbComplaintsAboutRightsProtectionExample {
     protected String orderByClause;
 
     protected boolean distinct;
@@ -573,6 +572,146 @@ public class TbComplaintsAboutRightsProtectionExample  implements Serializable {
 
         public Criteria andHandlingSituationNotBetween(String value1, String value2) {
             addCriterion("handling_situation not between", value1, value2, "handlingSituation");
+            return (Criteria) this;
+        }
+
+        public Criteria andComplainantIsNull() {
+            addCriterion("complainant is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andComplainantIsNotNull() {
+            addCriterion("complainant is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andComplainantEqualTo(String value) {
+            addCriterion("complainant =", value, "complainant");
+            return (Criteria) this;
+        }
+
+        public Criteria andComplainantNotEqualTo(String value) {
+            addCriterion("complainant <>", value, "complainant");
+            return (Criteria) this;
+        }
+
+        public Criteria andComplainantGreaterThan(String value) {
+            addCriterion("complainant >", value, "complainant");
+            return (Criteria) this;
+        }
+
+        public Criteria andComplainantGreaterThanOrEqualTo(String value) {
+            addCriterion("complainant >=", value, "complainant");
+            return (Criteria) this;
+        }
+
+        public Criteria andComplainantLessThan(String value) {
+            addCriterion("complainant <", value, "complainant");
+            return (Criteria) this;
+        }
+
+        public Criteria andComplainantLessThanOrEqualTo(String value) {
+            addCriterion("complainant <=", value, "complainant");
+            return (Criteria) this;
+        }
+
+        public Criteria andComplainantLike(String value) {
+            addCriterion("complainant like", value, "complainant");
+            return (Criteria) this;
+        }
+
+        public Criteria andComplainantNotLike(String value) {
+            addCriterion("complainant not like", value, "complainant");
+            return (Criteria) this;
+        }
+
+        public Criteria andComplainantIn(List<String> values) {
+            addCriterion("complainant in", values, "complainant");
+            return (Criteria) this;
+        }
+
+        public Criteria andComplainantNotIn(List<String> values) {
+            addCriterion("complainant not in", values, "complainant");
+            return (Criteria) this;
+        }
+
+        public Criteria andComplainantBetween(String value1, String value2) {
+            addCriterion("complainant between", value1, value2, "complainant");
+            return (Criteria) this;
+        }
+
+        public Criteria andComplainantNotBetween(String value1, String value2) {
+            addCriterion("complainant not between", value1, value2, "complainant");
+            return (Criteria) this;
+        }
+
+        public Criteria andContactIsNull() {
+            addCriterion("contact is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andContactIsNotNull() {
+            addCriterion("contact is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andContactEqualTo(String value) {
+            addCriterion("contact =", value, "contact");
+            return (Criteria) this;
+        }
+
+        public Criteria andContactNotEqualTo(String value) {
+            addCriterion("contact <>", value, "contact");
+            return (Criteria) this;
+        }
+
+        public Criteria andContactGreaterThan(String value) {
+            addCriterion("contact >", value, "contact");
+            return (Criteria) this;
+        }
+
+        public Criteria andContactGreaterThanOrEqualTo(String value) {
+            addCriterion("contact >=", value, "contact");
+            return (Criteria) this;
+        }
+
+        public Criteria andContactLessThan(String value) {
+            addCriterion("contact <", value, "contact");
+            return (Criteria) this;
+        }
+
+        public Criteria andContactLessThanOrEqualTo(String value) {
+            addCriterion("contact <=", value, "contact");
+            return (Criteria) this;
+        }
+
+        public Criteria andContactLike(String value) {
+            addCriterion("contact like", value, "contact");
+            return (Criteria) this;
+        }
+
+        public Criteria andContactNotLike(String value) {
+            addCriterion("contact not like", value, "contact");
+            return (Criteria) this;
+        }
+
+        public Criteria andContactIn(List<String> values) {
+            addCriterion("contact in", values, "contact");
+            return (Criteria) this;
+        }
+
+        public Criteria andContactNotIn(List<String> values) {
+            addCriterion("contact not in", values, "contact");
+            return (Criteria) this;
+        }
+
+        public Criteria andContactBetween(String value1, String value2) {
+            addCriterion("contact between", value1, value2, "contact");
+            return (Criteria) this;
+        }
+
+        public Criteria andContactNotBetween(String value1, String value2) {
+            addCriterion("contact not between", value1, value2, "contact");
             return (Criteria) this;
         }
 
