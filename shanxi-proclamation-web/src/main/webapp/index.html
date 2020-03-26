@@ -42,15 +42,18 @@
             <div class="logo"></div>
             <div class="nav">
                 <ul>
-                    <li ><a href="http://172.17.1.51:9101/page/index.do" target="_self">首 页</a></li>
-                    <li><a href="http://172.17.1.51:9101/page/dbcpzs.do" target="_self" title="地标产品展示">地标产品展示</a></li>
-                    <li><a href="http://172.17.1.51:9101/page/sydbqy.do" target="_self" title="使用地标企业">使用地标企业</a></li>
-                    <li><a href="http://172.17.1.249:9102/Statistics.html" target="_self" title="地标产品统计">地标产品统计</a></li>
-                    <li class="current"><a href="http://172.17.1.58:9103/index.html" target="_self" title="地标保护公告">地标保护公告</a></li>
-                    <li><a href="http://172.17.1.58:9103/guideBook.html" target="_self" title="地标申报指南">地标申报指南</a></li>
-                    <li><a href="http://172.17.1.58:9104/policyPapers.html" target="_self" title="政策文件">政策文件</a></li>
-                    <li><a href="http://172.17.1.58:9103/productIntroduction.html" target="_self" title="地标产品介绍">地标产品介绍</a></li>
+                    <li ><a href="http://localhost:9101/page/index.do" target="_self">首 页</a></li>
+                    <li ><a href="http://localhost:9101/page/dbcpzs.do" target="_self" title="地标产品展示">地标产品展示</a></li>
+                    <li ><a href="http://localhost:9101/page/sydbqy.do" target="_self" title="使用地标企业">使用地标企业</a></li>
+                    <li ><a href="http://localhost:9102/ProductBulletin.html" target="_self" title="产品公告">地标产品公告</a></li>
+                    <li ><a href="http://localhost:9102/Statistics.html" target="_self" title="地标产品统计">地标产品统计</a></li>
+                    <li class="current"><a href="http://localhost:9103/index.html" target="_self" title="地标保护公告">地标保护公告</a></li>
+                    <li ><a href="http://localhost:9103/guideBook.html" target="_self" title="地标申报指南">地标申报指南</a></li>
+                    <li ><a href="http://localhost:9104/policyPapers.html" target="_self" title="政策文件">政策文件</a></li>
+                    <li ><a href="http://localhost:9101/ComplainsRight.html" target="_self" title="投诉维权">投诉维权</a></li>
+                    <li ><a href="http://localhost:9103/productIntroduction.html" target="_self" title="地标产品介绍">地标产品介绍</a></li>
                 </ul>
+                <a href="http://www.patviewer.com/" target="_blank"><label class="showSearch" title="搜索"></label></a>
             </div>
         </div>
     </div>
@@ -58,7 +61,7 @@
 
     <div class="ctnindex" style="height: 100%;">
         <div class="ggcnt">
-            <div style="height: 35px; padding-top: 10px;"><h3>受理公告</h3></div>
+            <div style="height: 35px; padding-top: 10px;padding-left: 20px;"><h3>受理公告</h3></div>
             <div class="gglist"  style="background-color: white;height: 30%;">
                 <h4 style="width: 64px; float: right; padding-bottom: 5px; "><a href="indexDetail.html#?typeVal=1">更多>></a></h4>
 
@@ -69,7 +72,7 @@
                         <td>
                             <a href="show.html#?idVal={{item.id}}" ng-bind-html="item.title | trustHtml" target="_blank" style="text-decoration: none">
                                 <label style="float:left;width:150px;display: block;text-align: left;">{{item.title}}</label></a>
-                            <label style="float:right;font-size: 13px">{{item.createTime.substring(0,10)}}</label>
+                            <label style="float:right;font-size: 13px">{{item.noticeTime}}</label>
                         </td>
                     </tr>
                     </tbody>
@@ -85,11 +88,11 @@
                 <!--保护公告数据列表1-->
                 <table class="gtable" cellspacing="0" cellpadding="0" border="0">
                     <tbody>
-                    <tr ng-repeat=" item in resultMap.rows['保护公告'] ">
+                    <tr ng-repeat=" item in resultMap.rows['批准公告'] ">
                         <td>
                             <a href="show.html#?idVal={{item.id}}" ng-bind-html="item.title | trustHtml" target="_blank" style="text-decoration: none">
                                 <label style="float:left;width:150px;display: block;text-align: left;">{{item.title}}</label></a>
-                            <label style="float:right;font-size: 13px">{{item.createTime.substring(0,10)}}</label>
+                            <label style="float:right;font-size: 13px">{{item.noticeTime}}</label>
                         </td>
                     </tr>
                     </tbody>
@@ -108,7 +111,7 @@
                         <td>
                             <a href="show.html#?idVal={{item.id}}" ng-bind-html="item.title | trustHtml" target="_blank" style="text-decoration: none">
                                 <label style="float:left;width:150px;display: block;text-align: left;">{{item.title}}</label></a>
-                            <label style="float:right;font-size: 13px">{{item.createTime.substring(0,10)}}</label>
+                            <label style="float:right;font-size: 13px">{{item.noticeTime}}</label>
                         </td>
                     </tr>
                     </tbody>

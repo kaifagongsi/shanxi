@@ -60,7 +60,7 @@ app.controller('proclamationController',function ($scope,$location,$window,procl
             if(typeVal == "1"){
                 $scope.searchMap.type = '受理公告';
             }else if(typeVal == "2"){
-                $scope.searchMap.type = '保护公告';
+                $scope.searchMap.type = '批准公告';
             }else if(typeVal == "3"){
                 $scope.searchMap.type = '核准公告';
             }

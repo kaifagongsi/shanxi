@@ -68,7 +68,7 @@ public class ProclamationServiceImpl implements ProclamtionService {
         TbProtectionNoticeExample slectExample = new TbProtectionNoticeExample();
         TbProtectionNoticeExample.Criteria criteria = slectExample.createCriteria();
         criteria.andIsdeleteEqualTo(0);
-        slectExample.setOrderByClause(" create_time desc");
+        slectExample.setOrderByClause(" notice_time desc");
         List<TbProtectionNotice> tbProtectionNotices = tbProtectionNoticeMapper.selectByExample(slectExample);
         if(tbProtectionNotices != null && tbProtectionNotices.size() > 0){
             for(TbProtectionNotice tmp : tbProtectionNotices){
