@@ -10,9 +10,11 @@ import com.kfgs.mapper.TbComplaintsAboutRightsProtectionMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.File;
+import java.security.Timestamp;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.*;
 
 @Service(timeout = 1200000)
 @Transactional
@@ -35,5 +37,23 @@ public class ComplaintRightServiceImpl implements ComplaintRightService {
         mapResult.put("totalPages", page.getPages());
         mapResult.put("total",page.getTotal());
         return mapResult;
+    }
+
+    @Override
+    public int insertByExample(Map pData){
+        TbComplaintsAboutRightsProtection tbComplaintsAboutRightsProtection = new TbComplaintsAboutRightsProtection();
+        tbComplaintsAboutRightsProtection.setObjectOfComplaint(pData.get("object").toString());
+        tbComplaintsAboutRightsProtection.setDetailsOfComplaints(pData.get("detail").toString());
+        String money = pData.get("money").toString();
+        tbComplaintsAboutRightsProtection.setAmountOfComplaint(Double.valueOf(money));
+        tbComplaintsAboutRightsProtection.setState(pData.get("state").toString());
+        tbComplaintsAboutRightsProtection.setComplainant(pData.get("complainant").toString());
+        tbComplaintsAboutRightsProtection.setContact(pData.get("contact").toString());
+        tbComplaintsAboutRightsProtection.setPathOfEvidenceUpload(pData.get("filepath").toString());
+        Date time= new java.sql.Date(new java.util.Date().getTime());
+        tbComplaintsAboutRightsProtection.setCreateTime(time);
+        TbComplaintsAboutRightsProtectionExample complaintsAboutRightsProtectionExample = new TbComplaintsAboutRightsProtectionExample();
+        int returnResult = tbComplaintsAboutRightsProtectionMapper.insertComplain(tbComplaintsAboutRightsProtection);
+        return returnResult;
     }
 }

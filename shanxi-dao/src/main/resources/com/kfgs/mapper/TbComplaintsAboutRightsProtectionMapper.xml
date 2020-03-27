@@ -105,8 +105,23 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
+
+  <insert id="insertComplain" parameterType="com.kfgs.domain.TbComplaintsAboutRightsProtection" useGeneratedKeys="true" keyProperty="id">
+    <!--<selectKey  keyProperty="id" order="AFTER" resultType="int">
+      select LAST_INSERT_ID()
+    </selectKey>-->
+    insert into tb_complaints_about_rights_protection (object_of_complaint, details_of_complaints,
+    amount_of_complaint, path_of_evidence_upload,
+    state, handling_situation, complainant,
+    contact, create_time)
+    values (#{objectOfComplaint,jdbcType=VARCHAR}, #{detailsOfComplaints,jdbcType=VARCHAR},
+    #{amountOfComplaint,jdbcType=DOUBLE}, #{pathOfEvidenceUpload,jdbcType=VARCHAR},
+    #{state,jdbcType=VARCHAR}, #{handlingSituation,jdbcType=VARCHAR}, #{complainant,jdbcType=VARCHAR},
+    #{contact,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+
   <insert id="insert" parameterType="com.kfgs.domain.TbComplaintsAboutRightsProtection" >
-    insert into tb_complaints_about_rights_protection (id, object_of_complaint, details_of_complaints, 
+    insert into tb_complaints_about_rights_protection (id, object_of_complaint, details_of_complaints,
       amount_of_complaint, path_of_evidence_upload, 
       state, handling_situation, complainant, 
       contact, create_time)

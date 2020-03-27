@@ -51,15 +51,15 @@
             <div class="logo"></div>
             <div class="nav" >
                 <ul>
-                    <li style="width: 70px"><a href="http://172.17.1.63:9101/page/index.do" target="_self">首 页</a></li>
-                    <li style="width: 100px"><a href="http://172.17.1.63:9101/page/dbcpzs.do" target="_self" title="地标产品展示">地标产品展示</a></li>
-                    <li style="width: 100px"><a href="http://172.17.1.63:9101/page/sydbqy.do" target="_self" title="使用地标企业">使用地标企业</a></li>
+                    <li style="width: 70px"><a href="http://172.17.1.35:9101/page/index.do" target="_self">首 页</a></li>
+                    <li style="width: 100px"><a href="http://172.17.1.35:9101/page/dbcpzs.do" target="_self" title="地标产品展示">地标产品展示</a></li>
+                    <li style="width: 100px"><a href="http://172.17.1.35:9101/page/sydbqy.do" target="_self" title="使用地标企业">使用地标企业</a></li>
                     <li style="width: 100px"><a href="http://172.17.1.249:9102/ProductBulletin.html" target="_self" title="产品公告">地标产品公告</a></li>
                     <li style="width: 100px"><a href="http://172.17.1.249:9102/Statistics.html" target="_self" title="地标产品统计">地标产品统计</a></li>
                     <li style="width: 100px"><a href="http://172.17.1.58:9103/index.html" target="_self" title="地标保护公告">地标保护公告</a></li>
                     <li style="width: 100px"><a href="http://172.17.1.58:9103/guideBook.html" target="_self" title="地标申报指南">地标申报指南</a></li>
                     <li style="width: 100px"><a href="http://172.17.1.58:9104/policyPapers.html" target="_self" title="政策文件">政策文件</a></li>
-                    <li style="width: 100px" class="current"><a href="http://localhost:9101/ComplainsRight.html" target="_self" title="投诉维权">投诉维权</a></li>
+                    <li style="width: 100px" class="current"><a href="http://172.17.1.35:9101/ComplainsRight.html" target="_self" title="投诉维权">投诉维权</a></li>
                     <li style="width: 100px"><a href="http://172.17.1.63:9103/productIntroduction.html" target="_self" title="地标产品介绍">地标产品介绍</a></li>
                 </ul>
                 <!--  <label class="showSearch" title="搜索"></label>-->
@@ -94,27 +94,38 @@
                                 <hr style="filter: alpha(opacity=100,finishopacity=0,style=2)" width="99%"  size="2" />
 
                                 <!-- 表单  -->
-                                <form role="form">
+                                <form id="rights_info">
                                     <div class="form-group">
                                         <label for="object">投诉对象</label>
-                                        <input type="text" class="form-control" id="object"
+                                        <input type="text" class="form-control" id="object" name="object" ng-model="object"
                                                placeholder="请输入投诉对象">
                                     </div>
                                     <div class="form-group">
                                         <label for="detail">投诉详情</label>
-                                        <textarea class="form-control" rows="5" id="detail" name="detail" placeholder="请输入投诉详情"></textarea>
+                                        <textarea class="form-control" rows="5" id="detail" name="detail" ng-model="detail" placeholder="请输入投诉详情"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="money">涉诉金额</label>
-                                        <input type="text" class="form-control" id="money"
+                                        <input type="text" class="form-control" id="money" name="money" ng-model="money"
+                                               placeholder="请输入涉诉金额">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="complainant">投诉人</label>
+                                        <input type="text" class="form-control" id="complainant" name="complainant" ng-model="complainant"
+                                               placeholder="请输入涉诉金额">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contact">联系方式</label>
+                                        <input type="text" class="form-control" id="contact" name="contact" ng-model="contact"
                                                placeholder="请输入涉诉金额">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="file">文件输入</label>
-                                        <input type="file" id="file" class="file">
+                                        <input type="file" id="file" class="file" name="filename">
+                                       <!-- <button type="button" ng-click="savefile()">上传</button>-->
                                     </div>
-                                    <button type="submit" class="btn btn-default" ng-click="upload()">提交</button>
+                                    <button type="submit" class="btn btn-default" ng-click="uploadfile()">提交</button>
                                 </form>
                             </div>
                             <!-- 地标产品统计 -->
@@ -205,4 +216,37 @@
 </div>
 </div>
 </body>
+<!--<script type="text/javascript">
+    String.prototype.Trim = function() {
+        var m = this.match(/^\s*(\S+(\s+\S+)*)\s*$/);
+        return (m == null) ? "" : m[1];
+    }
+
+    String.prototype.isMobile = function() {
+        return (/^(?:13\d|15[89])-?\d{5}(\d{3}|\*{3})$/.test(this.Trim()));
+    }
+
+    String.prototype.isTel = function()
+    {
+        //"兼容格式: 国家代码(2到3位)-区号(2到3位)-电话号码(7到8位)-分机号(3位)"
+        //return (/^(([0\+]\d{2,3}-)?(0\d{2,3})-)?(\d{7,8})(-(\d{3,}))?$/.test(this.Trim()));
+        return (/^(([0\+]\d{2,3}-)?(0\d{2,3})-)(\d{7,8})(-(\d{3,}))?$/.test(this.Trim()));
+    }
+
+    function chkForm() {
+        with(document.form1){
+            if (tel.value.isMobile()||tel.value.isTel())  {
+                tel.value = tel.value.Trim();
+                alert("您的电话/手机号码是:" + tel.value);
+                //uploadfile();
+                return true;
+            }
+            else {
+                alert("请输入正确的手机号码或电话号码\n\n例如:13916752109或0712-3614072");
+                tel.focus();
+                return false;
+            }
+        }
+    }
+</script>-->
 </html>

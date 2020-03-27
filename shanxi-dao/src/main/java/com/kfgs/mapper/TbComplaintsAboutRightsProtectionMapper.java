@@ -15,6 +15,8 @@ public interface TbComplaintsAboutRightsProtectionMapper {
 
     int insert(TbComplaintsAboutRightsProtection record);
 
+    int insertComplain(TbComplaintsAboutRightsProtection record);
+
     int insertSelective(TbComplaintsAboutRightsProtection record);
 
     List<TbComplaintsAboutRightsProtection> selectByExample(TbComplaintsAboutRightsProtectionExample example);

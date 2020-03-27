@@ -2,7 +2,6 @@ package com.kfgs.firstweb.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 @RequestMapping({"page"})
@@ -36,5 +35,11 @@ public class PageController {
     public String detail(){
         return "detail";
     }
+
+    @RequestMapping("complain")
+    public String complain(){ return "complain"; }
+
+    @RequestMapping("static")
+    public  String statics(){ return "/WEB-INF/static.html";}
 
 }
