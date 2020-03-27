@@ -47,31 +47,40 @@ app.controller('complaintRightController',function ($scope,$http,$location,$wind
 
         if(!($scope.pData.contact.isMobile() || $scope.pData.contact.isTel())){
             alert("请输入正确的手机号码或电话号码\n\n例如:13916752109或0712-3614072");
-        }else {
+        }else if($scope.pData.object == null) {
+            alert("投诉对象不可为空！");
+        }else if($scope.pData.detail == null) {
+            alert("投诉详情不可为空！");
+        }else if($scope.pData.money == null) {
+            alert("投诉金额不可为空！");
+        }else if($scope.pData.complainant == null) {
+            alert("投诉人不可为空！");
+        }else{
 
-            //获取表单
-            var formData = new FormData(document.getElementById("rights_info"));
-            //获取文件
-            var file = document.getElementById("file").files[0];
+                //获取表单
+                var formData = new FormData(document.getElementById("rights_info"));
+                //获取文件
+                var file = document.getElementById("file").files[0];
 
-            if (file != null) {
-                var filename = file.name;
-                $scope.pData.filepath += filename
-                formData.append("file", file);
+                if (file != null) {
+                    var filename = file.name;
+                    $scope.pData.filepath += filename
+                    formData.append("file", file);
+                }
+
+                return $http({
+                    method: 'post',
+                    url: '../../upload/savefile.do',
+                    data: formData,
+                    headers: {'Content-Type': undefined},
+                    transformRequest: angular.identity
+                }).then(function (response) {
+                    //alert(response);
+                    complaintRightService.uploadfile($scope.pData).success(
+                        alert("提交成功！")
+                    )
+                });
             }
-
-            return $http({
-                method: 'post',
-                url: '../../upload/savefile.do',
-                data: formData,
-                headers: {'Content-Type': undefined},
-                transformRequest: angular.identity
-            }).then(function (response) {
-                //alert(response);
-                complaintRightService.uploadfile($scope.pData).success(
-                    alert("提交成功！")
-                )
-            });
         }
 
         /*fromData.append("filename",file);
