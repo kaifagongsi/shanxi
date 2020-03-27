@@ -94,7 +94,7 @@
                                 <hr style="filter: alpha(opacity=100,finishopacity=0,style=2)" width="99%"  size="2" />
 
                                 <!-- 表单  -->
-                                <form id="rights_info">
+                                <form id="rights_info" name="form1">
                                     <div class="form-group">
                                         <label for="object">投诉对象</label>
                                         <input type="text" class="form-control" id="object" name="object" ng-model="object"
@@ -215,7 +215,7 @@
     </div>		<!--/footer-->
 </div>
 </div>
-</body>
+
 <!--<script type="text/javascript">
     String.prototype.Trim = function() {
         var m = this.match(/^\s*(\S+(\s+\S+)*)\s*$/);
@@ -234,19 +234,22 @@
     }
 
     function chkForm() {
+        alert("测试");
         with(document.form1){
-            if (tel.value.isMobile()||tel.value.isTel())  {
-                tel.value = tel.value.Trim();
-                alert("您的电话/手机号码是:" + tel.value);
+            if (contact.value.isMobile()||contact.value.isTel())  {
+                contact.value = contact.value.Trim();
+                alert("您的电话/手机号码是:" + contact.value);
                 //uploadfile();
                 return true;
             }
             else {
                 alert("请输入正确的手机号码或电话号码\n\n例如:13916752109或0712-3614072");
-                tel.focus();
+                contact.focus();
                 return false;
             }
         }
     }
 </script>-->
+</body>
+
 </html>
