@@ -43,11 +43,9 @@ app.controller('complaintRightController',function ($scope,$http,$location,$wind
         $scope.pData.complainant = $("#complainant").val();
         $scope.pData.contact = $("#contact").val();
 
-        $scope.pData.filepath = "E:\\Projects\\shanxi\\shanxi-firstweb-web\\target\\classes\\static\\file\\";
+        //$scope.pData.filepath = "E:\\Projects\\shanxi\\shanxi-firstweb-web\\target\\classes\\static\\file\\";
 
-        if(!($scope.pData.contact.isMobile() || $scope.pData.contact.isTel())){
-            alert("请输入正确的手机号码或电话号码\n\n例如:13916752109或0712-3614072");
-        }else if($scope.pData.object == null) {
+        if($scope.pData.object == null) {
             alert("投诉对象不可为空！");
         }else if($scope.pData.detail == null) {
             alert("投诉详情不可为空！");
@@ -55,6 +53,8 @@ app.controller('complaintRightController',function ($scope,$http,$location,$wind
             alert("投诉金额不可为空！");
         }else if($scope.pData.complainant == null) {
             alert("投诉人不可为空！");
+        }else if(!($scope.pData.contact.isMobile() || $scope.pData.contact.isTel())){
+            alert("请输入正确的手机号码或电话号码\n\n例如:13916752109或0712-3614072");
         }else{
 
                 //获取表单
@@ -63,6 +63,7 @@ app.controller('complaintRightController',function ($scope,$http,$location,$wind
                 var file = document.getElementById("file").files[0];
 
                 if (file != null) {
+                    $scope.pData.filepath = "E:\\Projects\\shanxi\\shanxi-firstweb-web\\target\\classes\\static\\file\\";
                     var filename = file.name;
                     $scope.pData.filepath += filename
                     formData.append("file", file);
@@ -81,16 +82,8 @@ app.controller('complaintRightController',function ($scope,$http,$location,$wind
                     )
                 });
             }
-        }
+        };
 
-        /*fromData.append("filename",file);
-        formData.append("pData",angular.toJson(pData));
-        console.log($scope.pData);*/
-
-        /*complaintRightService.uploadfile($scope.pData).success(
-            alert("success")
-        )*/
-    }
 
 
     //搜索
@@ -166,7 +159,7 @@ app.controller('complaintRightController',function ($scope,$http,$location,$wind
         }else if(e.target.innerHTML=="案件处理情况"){
             $scope.load();
         }
-    });
+    })
 
 
 });
